@@ -152,37 +152,59 @@ function election(array, icon) {
     console.log(compra);
     icon.src = array[0].img;
     pasos++;
+    console.log(pasos);
   });
   btnCompra2.addEventListener("click", () => {
     compra.push(array[1]);
     console.log(compra);
     icon.src = array[1].img;
+    pasos++;
   });
   btnCompra3.addEventListener("click", () => {
     compra.push(array[2]);
     console.log(compra);
     icon.src = array[2].img;
+    pasos++;
   });
   btnCompra4.addEventListener("click", () => {
     compra.push(array[3]);
     console.log(compra);
     icon.src = array[3].img;
+    pasos++;
   });
 }
 
 // --- 😎 ---
 
-function paso1() {
-  showProduct(micro);
-  election(micro, iconMicro);
-}
+// function paso1() {
+//   showProduct(micro);
+//   election(micro, iconMicro);
+// }
 
 function paso2() {
   showProduct(cooler);
   election(cooler, iconCooler);
 }
 
+function pasitos() {
+  switch (pasos) {
+    case 0:
+      showProduct(micro);
+      election(micro, iconMicro);
+      break;
+    case 1:
+      showProduct(cooler);
+      election(cooler, iconCooler);
+      break;
+  }
+  if (pasos < 7) {
+    pasitos();
+  }
+}
 // showProduct(micro);
 // election(micro);
 
-console.log(compra);
+// paso1();
+
+console.log(pasos);
+pasitos();

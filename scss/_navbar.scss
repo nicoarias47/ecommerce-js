@@ -1,12 +1,13 @@
 span {
   font-size: 1.3rem;
   font-weight: bold;
-  color: $color-4;
+  color: $color-3;
 }
 
 header {
-  background-color: $color-1;
+  background-color: $color-4;
   padding: 0.5rem 0;
+  margin-bottom: 2rem;
 }
 
 nav {
@@ -17,13 +18,17 @@ nav {
   list-style: none;
   display: flex;
   justify-content: center;
-  border-top: 1px solid $color-4;
+  border-top: 1px solid $color-3;
 }
 
 .nav__link {
   text-decoration: none;
   color: $color-2;
   padding-left: 1rem;
+
+  &:hover {
+    color: $color-3;
+  }
 }
 
 .nav__item {
