@@ -3,3 +3,38 @@
   height: 150px;
   padding-bottom: 1.5rem;
 }
+
+.hero-productos {
+  margin-bottom: 2rem;
+}
+
+.productos {
+  background-color: $color-2;
+  border-radius: 0.4rem;
+  padding: 1rem;
+
+  &-icons {
+    font-size: 23px;
+    &-btn {
+      margin-left: 1rem;
+      border: none;
+      background-color: $color-2;
+      padding: 0.2rem;
+    }
+  }
+
+  &-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-3;
+    padding: 0.5rem 0;
+  }
+
+  &-link {
+    font-size: 1rem;
+    padding-left: 2rem;
+    color: $color-1;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+  }
+}

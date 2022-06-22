@@ -33,7 +33,6 @@ span {
 header {
   background-color: #232734;
   padding: 0.5rem 0;
-  margin-bottom: 2rem;
 }
 
 nav {
@@ -117,6 +116,38 @@ nav {
   padding-bottom: 1.5rem;
 }
 
+.hero-productos {
+  margin-bottom: 2rem;
+}
+
+.productos {
+  background-color: #ffffff;
+  border-radius: 0.4rem;
+  padding: 1rem;
+}
+.productos-icons {
+  font-size: 23px;
+}
+.productos-icons-btn {
+  margin-left: 1rem;
+  border: none;
+  background-color: #ffffff;
+  padding: 0.2rem;
+}
+.productos-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #03cc90;
+  padding: 0.5rem 0;
+}
+.productos-link {
+  font-size: 1rem;
+  padding-left: 2rem;
+  color: #353849;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
 .img-productos {
   width: 200px;
 }
@@ -132,7 +163,7 @@ nav {
   font-weight: 400;
   border-radius: 0.4rem;
   padding: 0.3rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .componentes {
