@@ -1,0 +1,33 @@
+.footer {
+  background-color: $color-1;
+  border-top: 2px solid $color-4;
+}
+.row__footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.col__footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
+}
+.footer__title {
+  color: $color-4;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.footer__text {
+  color: whitesmoke;
+  font-size: 1rem;
+  font-weight: 400;
+  padding-top: 0.3rem;
+}
+
+.copyright {
+  text-align: center;
+  color: $color-3;
+  padding: 1rem;
+  border-top: 1px solid $color-4;
+}

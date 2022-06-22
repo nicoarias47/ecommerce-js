@@ -1,0 +1,38 @@
+span {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: $color-4;
+}
+
+header {
+  background-color: $color-1;
+  padding: 0.5rem 0;
+}
+
+nav {
+  justify-self: center;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid $color-4;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: $color-2;
+  padding-left: 1rem;
+}
+
+.nav__item {
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+}
+
+.row__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}

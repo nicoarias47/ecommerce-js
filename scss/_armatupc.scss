@@ -1,0 +1,49 @@
+.img-productos {
+  width: 200px;
+}
+
+.hero-armaTuPc {
+  margin-bottom: 2rem;
+}
+
+.brand {
+  color: $color-2;
+  background-color: $color-3;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border-radius: 0.4rem;
+  padding: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.componentes {
+  background-color: $color-2;
+  border-radius: 0.4rem;
+  padding: 1rem;
+
+  &-title {
+    padding-bottom: 2rem;
+  }
+
+  &-img {
+    width: 50px;
+  }
+
+  &-description {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  &-icons {
+    padding: 0.8rem;
+    border-top: 2px dotted $color-3;
+  }
+  &-subTitle {
+    font-size: 0.8rem;
+    padding-left: 2rem;
+  }
+}
+
+// .componentes-img-micro {
+//   width: 50px;
+// }
