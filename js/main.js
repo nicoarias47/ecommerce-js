@@ -181,30 +181,22 @@ function election(array, icon) {
 //   election(micro, iconMicro);
 // }
 
-function paso2() {
+// function paso2() {
+//   showProduct(cooler);
+//   election(cooler, iconCooler);
+// }
+
+// paso2();
+
+// console.log(pasos);
+
+if (pasos == 0) {
+  showProduct(micro);
+  election(micro, iconMicro);
+} else if (pasos == 1) {
   showProduct(cooler);
   election(cooler, iconCooler);
+} else if (pasos == 2) {
+  showProduct(motherboard);
+  election(motherboard, iconMother);
 }
-
-function pasitos() {
-  switch (pasos) {
-    case 0:
-      showProduct(micro);
-      election(micro, iconMicro);
-      break;
-    case 1:
-      showProduct(cooler);
-      election(cooler, iconCooler);
-      break;
-  }
-  if (pasos < 7) {
-    pasitos();
-  }
-}
-// showProduct(micro);
-// election(micro);
-
-// paso1();
-
-console.log(pasos);
-pasitos();
