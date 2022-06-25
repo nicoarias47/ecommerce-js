@@ -1,5 +1,5 @@
-# Proyecto e-commerce
+# Proyecto e-commerce HYPE!
 
-## creado para el curso javascript de Coder House
+## Utilizando: js, TEMPLATE, Sass, Bootstrap, LocalStorage
 
-### Nicolas arias 2022
+### Nicolas arias 2022 - Coder House curso de js

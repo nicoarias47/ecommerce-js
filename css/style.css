@@ -164,12 +164,14 @@ nav {
   border-radius: 0.4rem;
   padding: 0.3rem;
   margin: 2rem 0;
+  box-shadow: 3px 2px 4px #232734;
 }
 
 .componentes {
   background-color: #ffffff;
   border-radius: 0.4rem;
   padding: 1rem;
+  box-shadow: 3px 5px 4px #232734;
 }
 .componentes-title {
   padding-bottom: 2rem;
@@ -190,6 +192,31 @@ nav {
   font-size: 0.8rem;
   padding-left: 2rem;
   color: #353849;
+}
+
+.card {
+  padding: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 3px 5px 4px #232734;
+  border: none;
+}
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #232734;
+}
+.card-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #03cc90;
+}
+
+.btn-primary {
+  background-color: #03cc90;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: #232734;
 }
 
 /*# sourceMappingURL=style.css.map */

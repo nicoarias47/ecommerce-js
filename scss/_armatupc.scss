@@ -14,12 +14,14 @@
   border-radius: 0.4rem;
   padding: 0.3rem;
   margin: 2rem 0;
+  box-shadow: 3px 2px 4px $color-4;
 }
 
 .componentes {
   background-color: $color-2;
   border-radius: 0.4rem;
   padding: 1rem;
+  box-shadow: 3px 5px 4px $color-4;
 
   &-title {
     padding-bottom: 2rem;
@@ -46,6 +48,30 @@
   }
 }
 
-// .componentes-img-micro {
-//   width: 50px;
-// }
+.card {
+  padding: 0.5rem;
+  background-color: $color-2;
+  box-shadow: 3px 5px 4px $color-4;
+  border: none;
+
+  &-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-4;
+  }
+
+  &-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: $color-3;
+  }
+}
+
+.btn-primary {
+  background-color: $color-3;
+  border: none;
+
+  &:hover {
+    background-color: $color-4;
+  }
+}
