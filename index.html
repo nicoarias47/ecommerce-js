@@ -28,64 +28,86 @@
     />
   </head>
   <body>
-    <header class="header__grid">
-      <div class="container">
-        <div class="row__header d-flex justify-content-between">
-          <div class="col">
-            <span>LOGO</span>
-          </div>
-          <div class="col">
-            <label for="site-search" class="search__label">Buscar</label>
-            <input
-              type="search"
-              id="site-search"
-              name="q"
-              class="search__input"
-            />
-          </div>
-          <div class="col">
-            <i class="fa-solid fa-cart-shopping" id="shopping"></i>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              x="0px"
-              y="0px"
-              width="30"
-              height="30"
-              viewBox="0 0 30 30"
-              style="fill: #fffffe"
-            >
-              <path
-                d="M18,19v-2c0.45-0.223,1.737-1.755,1.872-2.952c0.354-0.027,0.91-0.352,1.074-1.635c0.088-0.689-0.262-1.076-0.474-1.198 c0,0,0.528-1.003,0.528-2.214c0-2.428-0.953-4.5-3-4.5c0,0-0.711-1.5-3-1.5c-4.242,0-6,2.721-6,6c0,1.104,0.528,2.214,0.528,2.214 c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635C10.263,15.245,11.55,16.777,12,17v2c-1,3-9,1-9,8h24 C27,20,19,22,18,19z"
-              ></path>
-            </svg>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html"
+            ><img src="../img/logo.png" alt="rabbit logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"
+              ><i class="fa-solid fa-bars"></i
+            ></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/productos.html">Productos</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/armatupc.html">Arma tu PC</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <nav>
-          <div class="row__nav">
-            <div class="col">
-              <ul class="nav__list">
-                <li class="nav__item">
-                  <a class="nav__link" href="index.html">Inicio</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link" href="pages/productos.html">Productos</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link" href="pages/armatupc.html">Arma tu PC</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link disable" href="#">FAQ</a>
-                </li>
-                <li class="nav__item">
-                  <a class="nav__link disable" href="#">Contacto</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
+      </nav>
     </header>
     <main>
+      <!-- floating btn -->
+      <section>
+        <!-- Offcanvas Sidebar -->
+        <div class="offcanvas offcanvas-end" id="demo">
+          <div class="offcanvas-header">
+            <h1 class="offcanvas-title">Carrito</h1>
+            <button
+              type="button"
+              class="btn-close text-reset"
+              data-bs-dismiss="offcanvas"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div class="offcanvas-body">
+            <h2 class="carrito-title">Productos</h2>
+            <ul class="carrito-listProduct"></ul>
+            <span class="carrito-items">Sub Total:</span>
+            <span class="carrito-items">Envio:</span>
+            <span class="carrito-items">IVA 21%:</span>
+            <span class="carrito-items">TOTAL:</span>
+
+            <h2 class="carrito-title">Pc Armada</h2>
+            <ul class="carrito-listPc"></ul>
+            <span class="carrito-items">Sub Total:</span>
+            <span class="carrito-items">Envio:</span>
+            <span class="carrito-items">IVA 21%:</span>
+            <span class="carrito-items">TOTAL:</span>
+            <button class="btn btn-carrito" type="button">
+              Finalizar Compra
+            </button>
+          </div>
+        </div>
+        <!-- Button to open the offcanvas sidebar -->
+        <button
+          class="btn-shopping"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#demo"
+        >
+          <i class="fa-solid fa-basket-shopping"></i>
+        </button>
+      </section>
       <div class="container">
         <div class="row">
           <div class="col">
@@ -302,5 +324,18 @@
         </div>
       </div>
     </footer>
+    <!-- Bootstrap js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <!-- My script -->
+    <script src="js/main.js"></script>
   </body>
 </html>

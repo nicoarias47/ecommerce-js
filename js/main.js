@@ -107,6 +107,32 @@ const array = [
       precio: 22655,
     },
   ]),
+  (ram = [
+    {
+      id: 31,
+      name: "Memoria Ram Kingston 4GB 2666 Mhz DDR4",
+      img: "../img/componentes/ram/ram-1.jpg",
+      precio: 3850,
+    },
+    {
+      id: 32,
+      name: "Memoria Ram PNY Performance 8GB 2666 Mhz DDR4",
+      img: "../img/componentes/ram/ram-2.jpg",
+      precio: 5650,
+    },
+    {
+      id: 33,
+      name: "Memoria Ram Adata Xpg SPECTRIX D60 RGB 8GB 3200 Mhz DDR4",
+      img: "../img/componentes/ram/ram-3.jpg",
+      precio: 7540,
+    },
+    {
+      id: 34,
+      name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
+      img: "../img/componentes/ram/ram-4.jpg",
+      precio: 22655,
+    },
+  ]),
   (video = [
     {
       id: 41,
@@ -237,7 +263,7 @@ let showProduct = (array) => {
 };
 
 // --- CARRITO ---
-let compra = [];
+let compra = {};
 
 // --- AGREGAR AL CARRITO ---
 items.addEventListener("click", (e) => {
@@ -263,8 +289,13 @@ const setCarrito = (objeto) => {
     id: objeto.querySelector("#btn-compra").dataset.id,
     name: objeto.querySelector("#cTitle").textContent,
     price: objeto.querySelector("#cText").textContent,
+    amount: 1,
   };
-  compra.push(producto);
+
+  if (compra.hasOwnProperty(producto.id)) {
+    producto.amount = compra[producto.id].amount + 1;
+  }
+  compra[producto.id] = { ...producto };
 
   console.log(compra);
 };
@@ -275,9 +306,10 @@ let i = 0;
 
 function removeCards() {
   let removeCard = document.querySelectorAll(".card");
-
   removeCard[0].remove();
   removeCard[1].remove();
   removeCard[2].remove();
   removeCard[3].remove();
 }
+
+// ---  ---
