@@ -256,28 +256,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ----- SELECTORS -----
+// - template cards -
 const template = document.querySelector("#template").content;
-const items = document.querySelector("#items");
+const cards = document.querySelector("#items");
 const fragment = document.createDocumentFragment();
 
 //--- PINTAR CARDS ---
 let showProduct = (array) => {
   array.forEach((el) => {
     template.querySelector("#cTitle").textContent = el.name;
-    template.querySelector("#cText").textContent = "$ " + el.precio;
+    template.querySelector("#cText").textContent = el.precio;
     template.querySelector("#card-img").setAttribute("src", el.img);
     template.querySelector("#btn-compra").dataset.id = el.id;
     const clone = template.cloneNode(true);
     fragment.appendChild(clone);
   });
-  items.appendChild(fragment);
+  cards.appendChild(fragment);
 };
 
 // --- CARRITO ---
 let compra = {};
 
 // --- AGREGAR AL CARRITO ---
-items.addEventListener("click", (e) => {
+cards.addEventListener("click", (e) => {
   addCarrito(e);
   showIcons(e);
 });
@@ -308,8 +309,7 @@ const setCarrito = (objeto) => {
     producto.amount = compra[producto.id].amount + 1;
   }
   compra[producto.id] = { ...producto };
-
-  console.log(compra);
+  pintarCarrito();
 };
 
 // ---- PASOS ----
@@ -339,4 +339,66 @@ const setIcons = (objeto) => {
   const iconName = objeto.querySelector(".card-title").textContent;
   const name = document.querySelectorAll(".componentes-cardName");
   name[i - 1].textContent = iconName;
+};
+
+// --- PINTAR CARRITO ---
+
+// - Templates carrito -
+const templateCarrito = document.querySelector("#template-carrito").content;
+
+const listProducts = document.querySelector("#list-product"); // donde se colocaran nuestros productos
+
+// - Donde se pintaran nuestros costos
+const carritoSubTotal = document.querySelector(".carrito-subTotal");
+const carritoEnvio = document.querySelector(".carrito-envio");
+const carritoIva = document.querySelector(".carrito-iva");
+const carritoTotal = document.querySelector(".carrito-total");
+
+const pintarCarrito = () => {
+  listProducts.innerHTML = ""; // evitamos que recarge nuevamente los productos
+  Object.values(compra).forEach((producto) => {
+    if (producto.price > 0) {
+      // evitamos que muestre los productos con precio > 0
+      templateCarrito.querySelectorAll("td")[0].textContent = producto.id;
+      templateCarrito.querySelectorAll("td")[1].textContent = producto.name;
+      templateCarrito.querySelectorAll("td")[2].textContent = producto.amount;
+      templateCarrito.querySelectorAll("td")[3].textContent =
+        producto.amount * producto.price;
+
+      const clone = templateCarrito.cloneNode(true);
+      fragment.appendChild(clone);
+    }
+  });
+  listProducts.appendChild(fragment);
+
+  pintarCostos();
+};
+
+// --- PINTANDO LOS COSTOS ---
+const pintarCostos = () => {
+  const subTotal = Object.values(compra).reduce(
+    (acc, { amount, price }) => acc + price * amount,
+    0
+  );
+
+  carritoSubTotal.textContent = "$ " + subTotal;
+
+  const iva = subTotal * 0.21;
+  carritoIva.textContent = "$ " + Math.trunc(iva);
+
+  let envio = 0;
+
+  const mostrarEnvio = () => {
+    if (total > 140000) {
+      envio = 0;
+    } else {
+      envio = 800;
+    }
+  };
+
+  const total = subTotal + iva + envio;
+  carritoTotal.textContent = "$ " + total;
+
+  mostrarEnvio();
+  carritoEnvio.textContent = "$ " + envio;
 };

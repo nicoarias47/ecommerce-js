@@ -85,3 +85,24 @@ body {
     background-color: $color-3;
   }
 }
+
+.carrito-tabla {
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+
+  th {
+    padding: 0.2rem;
+    font-weight: 500;
+  }
+  td {
+    padding: 0.2rem;
+  }
+}
+
+.item-productos td {
+  max-width: 200px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

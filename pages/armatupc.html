@@ -82,18 +82,43 @@
           </div>
           <div class="offcanvas-body">
             <h2 class="carrito-title">Productos</h2>
-            <ul class="carrito-listProduct"></ul>
-            <span class="carrito-items">Sub Total:</span>
-            <span class="carrito-items">Envio:</span>
-            <span class="carrito-items">IVA 21%:</span>
-            <span class="carrito-items">TOTAL:</span>
-
-            <h2 class="carrito-title">Pc Armada</h2>
-            <ul class="carrito-listPc"></ul>
-            <span class="carrito-items">Sub Total:</span>
-            <span class="carrito-items">Envio:</span>
-            <span class="carrito-items">IVA 21%:</span>
-            <span class="carrito-items">TOTAL:</span>
+            <div>
+              <table class="carrito-tabla">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>PRODUCTO</th>
+                    <th>CANT</th>
+                    <th>PRECIO</th>
+                  </tr>
+                </thead>
+                <tbody id="list-product"></tbody>
+              </table>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">Sub Total:</span>
+                </div>
+                <div class="col carrito-subTotal"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">Envio:</span>
+                </div>
+                <div class="col carrito-envio"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">IVA 21%:</span>
+                </div>
+                <div class="col carrito-iva"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">TOTAL:</span>
+                </div>
+                <div class="col carrito-total"></div>
+              </div>
+            </div>
             <button class="btn btn-carrito" type="button">
               Finalizar Compra
             </button>
@@ -135,7 +160,7 @@
                   id="icon-micro"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Microprocesador</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -151,7 +176,7 @@
                   id="icon-cooler"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Cooler</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -167,7 +192,7 @@
                   id="icon-mother"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Motherboard</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -183,7 +208,7 @@
                   id="icon-ram"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Memoria RAM</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -199,7 +224,7 @@
                   id="icon-ram"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Memoria RAM</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -215,7 +240,7 @@
                   id="icon-video"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Placa de Video</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -231,7 +256,7 @@
                   id="icon-video"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Disco</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -247,7 +272,7 @@
                   id="icon-fuente"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Fuente</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -263,7 +288,7 @@
                   id="icon-fuente"
                 />
                 <div class="row">
-                  <div class="col">
+                  <div class="col d-flex flex-column">
                     <span class="componentes-subTitle">Gabinete</span>
                     <span class="componentes-cardName"></span>
                   </div>
@@ -490,6 +515,19 @@
           <button class="btn btn-primary" id="btn-compra">Comprar</button>
         </div>
       </div>
+    </template>
+    <!-- TEMPLATE CARRITO -->
+    <template id="template-carrito">
+      <tr class="item-productos">
+        <td>id</td>
+        <td>producto</td>
+        <td>cantidad</td>
+        <td>precio</td>
+      </tr>
+    </template>
+    <!-- TEMPLATE COSTOS -->
+    <template id="template-cost">
+      <span class="costos"></span>
     </template>
     <!-- Bootstrap js -->
     <script

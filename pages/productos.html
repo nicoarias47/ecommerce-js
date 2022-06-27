@@ -20,6 +20,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" />
     <!-- FONTS -->
     <link
@@ -81,18 +82,32 @@
           </div>
           <div class="offcanvas-body">
             <h2 class="carrito-title">Productos</h2>
-            <ul class="carrito-listProduct"></ul>
-            <span class="carrito-items">Sub Total:</span>
-            <span class="carrito-items">Envio:</span>
-            <span class="carrito-items">IVA 21%:</span>
-            <span class="carrito-items">TOTAL:</span>
-
-            <h2 class="carrito-title">Pc Armada</h2>
-            <ul class="carrito-listPc"></ul>
-            <span class="carrito-items">Sub Total:</span>
-            <span class="carrito-items">Envio:</span>
-            <span class="carrito-items">IVA 21%:</span>
-            <span class="carrito-items">TOTAL:</span>
+            <div class="carrito-listProduct" id="list-product">
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">Sub Total:</span>
+                </div>
+                <div class="col carrito-subTotal"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">Envio:</span>
+                </div>
+                <div class="col carrito-envio"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">IVA 21%:</span>
+                </div>
+                <div class="col carrito-iva"></div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <span class="carrito-items">TOTAL:</span>
+                </div>
+                <div class="col carrito-total"></div>
+              </div>
+            </div>
             <button class="btn btn-carrito" type="button">
               Finalizar Compra
             </button>

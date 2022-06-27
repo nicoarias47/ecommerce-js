@@ -77,6 +77,26 @@ body {
   background-color: #03cc90;
 }
 
+.carrito-tabla {
+  width: 100%;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.carrito-tabla th {
+  padding: 0.2rem;
+  font-weight: 500;
+}
+.carrito-tabla td {
+  padding: 0.2rem;
+}
+
+.item-productos td {
+  max-width: 200px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 header {
   background-color: #232734;
 }
@@ -252,9 +272,14 @@ header {
   border-top: 2px dotted #03cc90;
 }
 .componentes-subTitle {
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding-left: 2rem;
-  color: #353849;
+  color: #03cc90;
+}
+.componentes-cardName {
+  padding-left: 2rem;
+  text-align: justify;
+  font-size: 0.8rem;
 }
 
 .card {
