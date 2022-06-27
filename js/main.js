@@ -83,6 +83,12 @@ const array = [
   ]),
   (ram = [
     {
+      id: 30,
+      name: "No incluir Memoria RAM",
+      img: "../img/componentes/ram/noRam.svg",
+      precio: 0,
+    },
+    {
       id: 31,
       name: "Memoria Ram Kingston 4GB 2666 Mhz DDR4",
       img: "../img/componentes/ram/ram-1.jpg",
@@ -100,14 +106,20 @@ const array = [
       img: "../img/componentes/ram/ram-3.jpg",
       precio: 7540,
     },
-    {
-      id: 34,
-      name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
-      img: "../img/componentes/ram/ram-4.jpg",
-      precio: 22655,
-    },
+    // {
+    //   id: 34,
+    //   name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
+    //   img: "../img/componentes/ram/ram-4.jpg",
+    //   precio: 22655,
+    // },
   ]),
-  (ram = [
+  (ram2 = [
+    {
+      id: 30,
+      name: "No incluir Segunda Memoria RAM",
+      img: "../img/componentes/ram/noRam.svg",
+      precio: 0,
+    },
     {
       id: 31,
       name: "Memoria Ram Kingston 4GB 2666 Mhz DDR4",
@@ -126,12 +138,12 @@ const array = [
       img: "../img/componentes/ram/ram-3.jpg",
       precio: 7540,
     },
-    {
-      id: 34,
-      name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
-      img: "../img/componentes/ram/ram-4.jpg",
-      precio: 22655,
-    },
+    // {
+    //   id: 34,
+    //   name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
+    //   img: "../img/componentes/ram/ram-4.jpg",
+    //   precio: 22655,
+    // },
   ]),
   (video = [
     {
@@ -238,7 +250,6 @@ const array = [
     },
   ]),
 ];
-// --- motherboard --
 
 document.addEventListener("DOMContentLoaded", () => {
   showProduct(array[i]);
@@ -268,6 +279,7 @@ let compra = {};
 // --- AGREGAR AL CARRITO ---
 items.addEventListener("click", (e) => {
   addCarrito(e);
+  showIcons(e);
 });
 
 const addCarrito = (e) => {
@@ -276,7 +288,7 @@ const addCarrito = (e) => {
     i++; // aumentamos "i" de array
     removeCards(); // removemos antiguas tarjetas
 
-    if (i < 8) {
+    if (i < 9) {
       showProduct(array[i]);
     }
   }
@@ -312,4 +324,19 @@ function removeCards() {
   removeCard[3].remove();
 }
 
-// ---  ---
+// --- PINTAR PANEL IZQ ---
+function showIcons(e) {
+  if (e.target.parentElement.parentElement.classList.contains("card")) {
+    setIcons(e.target.parentElement.parentElement);
+  }
+  e.preventDefault();
+}
+
+const setIcons = (objeto) => {
+  const iconImg = objeto.querySelector(".card-img-top").src;
+  const img = document.querySelectorAll(".componentes-img");
+  img[i - 1].src = iconImg;
+  const iconName = objeto.querySelector(".card-title").textContent;
+  const name = document.querySelectorAll(".componentes-cardName");
+  name[i - 1].textContent = iconName;
+};

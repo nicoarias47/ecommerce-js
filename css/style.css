@@ -155,6 +155,11 @@ header {
   border-top: 1px solid #232734;
 }
 
+.svg-redes svg {
+  margin-right: 0.4rem;
+  cursor: pointer;
+}
+
 .banner {
   width: 100%;
 }
@@ -218,6 +223,11 @@ header {
   padding: 0.3rem;
   margin: 2rem 0;
   box-shadow: 3px 2px 4px #232734;
+}
+.brand .fa-computer {
+  padding: 0.2rem 0;
+  padding-right: 1rem;
+  padding-left: 0.2rem;
 }
 
 .componentes {
