@@ -253,10 +253,8 @@ const array = [
 
 document.addEventListener("DOMContentLoaded", () => {
   showProduct(array[i]);
-  if (localStorage.getItem("compra")) {
-    compra = JSON.parse(localStorage.getItem("compra"));
-    pintarCarrito();
-  }
+  compraGet();
+  iconSet();
 });
 
 // ----- SELECTORS -----
@@ -266,7 +264,7 @@ const cards = document.querySelector("#items");
 const fragment = document.createDocumentFragment();
 
 //--- PINTAR CARDS ---
-let showProduct = (array) => {
+const showProduct = (array) => {
   array.forEach((el) => {
     template.querySelector("#cTitle").textContent = el.name;
     template.querySelector("#cText").textContent = el.precio;
@@ -343,6 +341,8 @@ const setIcons = (objeto) => {
   const iconName = objeto.querySelector(".card-title").textContent;
   const name = document.querySelectorAll(".componentes-cardName");
   name[i - 1].textContent = iconName;
+
+  iconStorage(iconImg, iconName);
 };
 
 // --- PINTAR CARRITO ---
@@ -376,8 +376,7 @@ const pintarCarrito = () => {
   listProducts.appendChild(fragment);
 
   pintarCostos();
-
-  localStorage.setItem("compra", JSON.stringify(compra));
+  compraStorage();
 };
 
 // --- PINTANDO LOS COSTOS ---
@@ -410,3 +409,87 @@ const pintarCostos = () => {
 };
 
 // --- LOCAL STORAGE ---
+const compraStorage = () => {
+  localStorage.setItem("compra", JSON.stringify(compra));
+};
+
+const iconStorage = (el, iconName) => {
+  if (i - 1 === 0) {
+    localStorage.setItem("imgMicro", JSON.stringify(el));
+    localStorage.setItem("nameMicro", JSON.stringify(iconName));
+    return (i = 5);
+  } else if (i - 1 === 1) {
+    localStorage.setItem("imgCooler", JSON.stringify(el));
+    localStorage.setItem("nameCooler", JSON.stringify(iconName));
+  } else if (i - 1 === 2) {
+    localStorage.setItem("imgMother", JSON.stringify(el));
+    localStorage.setItem("nameMother", JSON.stringify(iconName));
+  } else if (i - 1 === 3) {
+    localStorage.setItem("imgRam1", JSON.stringify(el));
+    localStorage.setItem("nameRam1", JSON.stringify(iconName));
+  } else if (i - 1 === 4) {
+    localStorage.setItem("imgRam2", JSON.stringify(el));
+    localStorage.setItem("nameRam2", JSON.stringify(iconName));
+  } else if (i - 1 === 5) {
+    localStorage.setItem("imgVideo", JSON.stringify(el));
+    localStorage.setItem("nameVideo", JSON.stringify(iconName));
+  } else if (i - 1 === 6) {
+    localStorage.setItem("imgDisco", JSON.stringify(el));
+    localStorage.setItem("nameDisco", JSON.stringify(iconName));
+  } else if (i - 1 === 7) {
+    localStorage.setItem("imgFuente", JSON.stringify(el));
+    localStorage.setItem("nameFuente", JSON.stringify(iconName));
+  } else if (i - 1 === 8) {
+    localStorage.setItem("imgGabinete", JSON.stringify(el));
+    localStorage.setItem("nameGabinete", JSON.stringify(iconName));
+  }
+};
+
+const iconSet = () => {
+  const img = document.querySelectorAll(".componentes-img");
+  const name = document.querySelectorAll(".componentes-cardName");
+
+  if (localStorage.getItem("imgMicro")) {
+    img[0].src = JSON.parse(localStorage.getItem("imgMicro"));
+    name[0].textContent = JSON.parse(localStorage.getItem("nameMicro"));
+  }
+  if (localStorage.getItem("imgCooler")) {
+    img[1].src = JSON.parse(localStorage.getItem("imgCooler"));
+    name[1].textContent = JSON.parse(localStorage.getItem("nameCooler"));
+  }
+  if (localStorage.getItem("imgMother")) {
+    img[2].src = JSON.parse(localStorage.getItem("imgMother"));
+    name[2].textContent = JSON.parse(localStorage.getItem("nameMother"));
+  }
+  if (localStorage.getItem("imgRam1")) {
+    img[3].src = JSON.parse(localStorage.getItem("imgRam1"));
+    name[3].textContent = JSON.parse(localStorage.getItem("nameRam1"));
+  }
+  if (localStorage.getItem("imgRam2")) {
+    img[4].src = JSON.parse(localStorage.getItem("imgRam2"));
+    name[4].textContent = JSON.parse(localStorage.getItem("nameRam2"));
+  }
+  if (localStorage.getItem("imgVideo")) {
+    img[5].src = JSON.parse(localStorage.getItem("imgVideo"));
+    name[5].textContent = JSON.parse(localStorage.getItem("nameVideo"));
+  }
+  if (localStorage.getItem("imgDisco")) {
+    img[6].src = JSON.parse(localStorage.getItem("imgDisco"));
+    name[6].textContent = JSON.parse(localStorage.getItem("nameDisco"));
+  }
+  if (localStorage.getItem("imgFuente")) {
+    img[7].src = JSON.parse(localStorage.getItem("imgFuente"));
+    name[7].textContent = JSON.parse(localStorage.getItem("nameFuente"));
+  }
+  if (localStorage.getItem("imgGabinete")) {
+    img[8].src = JSON.parse(localStorage.getItem("imgGabinete"));
+    name[8].textContent = JSON.parse(localStorage.getItem("nameGabinete"));
+  }
+};
+
+const compraGet = () => {
+  if (localStorage.getItem("compra")) {
+    compra = JSON.parse(localStorage.getItem("compra"));
+    pintarCarrito();
+  }
+};
