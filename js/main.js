@@ -417,7 +417,6 @@ const iconStorage = (el, iconName) => {
   if (i - 1 === 0) {
     localStorage.setItem("imgMicro", JSON.stringify(el));
     localStorage.setItem("nameMicro", JSON.stringify(iconName));
-    return (i = 5);
   } else if (i - 1 === 1) {
     localStorage.setItem("imgCooler", JSON.stringify(el));
     localStorage.setItem("nameCooler", JSON.stringify(iconName));
