@@ -253,6 +253,10 @@ const array = [
 
 document.addEventListener("DOMContentLoaded", () => {
   showProduct(array[i]);
+  if (localStorage.getItem("compra")) {
+    compra = JSON.parse(localStorage.getItem("compra"));
+    pintarCarrito();
+  }
 });
 
 // ----- SELECTORS -----
@@ -372,6 +376,8 @@ const pintarCarrito = () => {
   listProducts.appendChild(fragment);
 
   pintarCostos();
+
+  localStorage.setItem("compra", JSON.stringify(compra));
 };
 
 // --- PINTANDO LOS COSTOS ---
@@ -402,3 +408,5 @@ const pintarCostos = () => {
   mostrarEnvio();
   carritoEnvio.textContent = "$ " + envio;
 };
+
+// --- LOCAL STORAGE ---
