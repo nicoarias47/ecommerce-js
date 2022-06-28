@@ -252,9 +252,10 @@ const array = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  showProduct(array[i]);
-  compraGet();
+  pasosObtener();
   iconSet();
+  compraGet();
+  showProduct(array[i]);
 });
 
 // ----- SELECTORS -----
@@ -377,6 +378,7 @@ const pintarCarrito = () => {
 
   pintarCostos();
   compraStorage();
+  pasosStorage();
 };
 
 // --- PINTANDO LOS COSTOS ---
@@ -490,5 +492,21 @@ const compraGet = () => {
   if (localStorage.getItem("compra")) {
     compra = JSON.parse(localStorage.getItem("compra"));
     pintarCarrito();
+  }
+};
+
+// --guardamos let i para guardar pasos
+
+const pasosStorage = () => {
+  localStorage.setItem("pasos", JSON.stringify(i));
+};
+
+const pasosObtener = () => {
+  if (localStorage.getItem("pasos")) {
+    if (i < 7) {
+      i = JSON.parse(localStorage.getItem("pasos")) + 1;
+    } else {
+      i = JSON.parse(localStorage.getItem("pasos"));
+    }
   }
 };
