@@ -355,3 +355,7 @@ const menorPrecio = () => {
     showProduct();
   });
 };
+
+// import { pepe } from "./array";
+
+// console.log(pepe);
