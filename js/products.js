@@ -1,9 +1,5 @@
 // OBJETOS
 
-// ---  microprocesador ---
-// OBJETOS
-
-// ---  microprocesador ---
 const array = [
   (micro = [
     {
@@ -109,44 +105,12 @@ const array = [
       img: "../img/componentes/ram/ram-3.jpg",
       precio: 7540,
     },
-    // {
-    //   id: 34,
-    //   name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
-    //   img: "../img/componentes/ram/ram-4.jpg",
-    //   precio: 22655,
-    // },
-  ]),
-  (ram2 = [
     {
-      id: 30,
-      name: "No incluir Segunda Memoria RAM",
-      img: "../img/componentes/ram/noRam.svg",
-      precio: 0,
+      id: 34,
+      name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
+      img: "../img/componentes/ram/ram-4.jpg",
+      precio: 22655,
     },
-    {
-      id: 31,
-      name: "Memoria Ram Kingston 4GB 2666 Mhz DDR4",
-      img: "../img/componentes/ram/ram-1.jpg",
-      precio: 3850,
-    },
-    {
-      id: 32,
-      name: "Memoria Ram PNY Performance 8GB 2666 Mhz DDR4",
-      img: "../img/componentes/ram/ram-2.jpg",
-      precio: 5650,
-    },
-    {
-      id: 33,
-      name: "Memoria Ram Adata Xpg SPECTRIX D60 RGB 8GB 3200 Mhz DDR4",
-      img: "../img/componentes/ram/ram-3.jpg",
-      precio: 7540,
-    },
-    // {
-    //   id: 34,
-    //   name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
-    //   img: "../img/componentes/ram/ram-4.jpg",
-    //   precio: 22655,
-    // },
   ]),
   (video = [
     {
@@ -351,4 +315,5 @@ const showProduct = () => {
   }
 };
 
-// solucionar showproduct
+//--- ORDENANDO PRODUCTOS ---
+const btnOrden = document.querySelector("#mayorPrecio");

@@ -106,12 +106,12 @@ const array = [
       img: "../img/componentes/ram/ram-3.jpg",
       precio: 7540,
     },
-    // {
-    //   id: 34,
-    //   name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
-    //   img: "../img/componentes/ram/ram-4.jpg",
-    //   precio: 22655,
-    // },
+    {
+      id: 34,
+      name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
+      img: "../img/componentes/ram/ram-4.jpg",
+      precio: 22655,
+    },
   ]),
   (ram2 = [
     {
@@ -138,12 +138,12 @@ const array = [
       img: "../img/componentes/ram/ram-3.jpg",
       precio: 7540,
     },
-    // {
-    //   id: 34,
-    //   name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
-    //   img: "../img/componentes/ram/ram-4.jpg",
-    //   precio: 22655,
-    // },
+    {
+      id: 34,
+      name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
+      img: "../img/componentes/ram/ram-4.jpg",
+      precio: 22655,
+    },
   ]),
   (video = [
     {
@@ -527,6 +527,7 @@ const pasosObtener = () => {
 };
 
 // --- STOP --- le ponemos un freno a "i", para que no siga sumando pasos al recargar la pagina
+let stop = 0;
 
 const stopStorage = () => {
   localStorage.setItem("stop", JSON.stringify(stop));
@@ -537,5 +538,3 @@ const stopGet = () => {
     stop = JSON.parse(localStorage.getItem("stop"));
   }
 };
-
-let stop = 0;
