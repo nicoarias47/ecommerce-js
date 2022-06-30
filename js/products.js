@@ -478,7 +478,6 @@ const setCarrito = (objeto) => {
     producto.amount = compraItems[producto.id].amount + 1;
   }
 
-  console.log(producto);
   compraItems[producto.id] = { ...producto };
   pintarSegundoCarrito();
 };
