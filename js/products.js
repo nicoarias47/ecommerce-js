@@ -212,10 +212,19 @@ const array = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
+  filtroTodos();
+  filtroMicro();
+  filtroCooler();
+  filtroMother();
+  filtroRam();
+  filtroVideo();
+  filtroDisco();
+  filtroFuente();
+  filtroGabinete();
   mayorPrecio();
   menorPrecio();
   compraGet();
-  showProduct();
+  showProduct(newArray);
 });
 
 // -- localStorage -- traemos el carrito del localStorage
@@ -295,7 +304,7 @@ const cards = document.querySelector("#items");
 
 //--- PINTAR CARDS ---
 
-const showProduct = () => {
+const showProduct = (array) => {
   array.forEach((el) => {
     if (el.precio > 0) {
       template.querySelector("#cTitle").textContent = el.name;
@@ -320,10 +329,13 @@ function removeCards() {
 
 //--- ORDENANDO PRODUCTOS ---
 
+let newArray = array;
+
 const mayorPrecio = () => {
   document.querySelector("#mayorPrecio").addEventListener("click", () => {
     removeCards();
-    array.sort(function (a, b) {
+
+    newArray.sort(function (a, b) {
       if (a.precio < b.precio) {
         return 1;
       }
@@ -334,14 +346,15 @@ const mayorPrecio = () => {
       return 0;
     });
 
-    showProduct();
+    showProduct(newArray);
   });
 };
 
 const menorPrecio = () => {
   document.querySelector("#menorPrecio").addEventListener("click", () => {
     removeCards();
-    array.sort(function (a, b) {
+
+    newArray.sort(function (a, b) {
       if (a.precio > b.precio) {
         return 1;
       }
@@ -352,10 +365,86 @@ const menorPrecio = () => {
       return 0;
     });
 
-    showProduct();
+    showProduct(newArray);
   });
 };
 
-// import { pepe } from "./array";
+const filtroTodos = () => {
+  document.querySelector("#filtro-todos").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray.sort((a, b) => Math.random() - 0.5);
+    showProduct(newArray);
+  });
+};
 
-// console.log(pepe);
+const filtroMicro = () => {
+  document.querySelector("#filtro-micro").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Micro"));
+    showProduct(newArray);
+  });
+};
+
+const filtroCooler = () => {
+  document.querySelector("#filtro-cooler").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Cooler"));
+    showProduct(newArray);
+  });
+};
+
+const filtroMother = () => {
+  document.querySelector("#filtro-mother").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Mother"));
+    showProduct(newArray);
+  });
+};
+
+const filtroRam = () => {
+  document.querySelector("#filtro-ram").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Ram"));
+    showProduct(newArray);
+  });
+};
+
+const filtroVideo = () => {
+  document.querySelector("#filtro-video").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Video"));
+    showProduct(newArray);
+  });
+};
+const filtroDisco = () => {
+  document.querySelector("#filtro-disco").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Disco"));
+    showProduct(newArray);
+  });
+};
+
+const filtroFuente = () => {
+  document.querySelector("#filtro-fuente").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Fuente"));
+    showProduct(newArray);
+  });
+};
+
+const filtroGabinete = () => {
+  document.querySelector("#filtro-gabinete").addEventListener("click", () => {
+    removeCards();
+    newArray = array;
+    newArray = array.filter((array) => array.name.includes("Gabinete"));
+    showProduct(newArray);
+  });
+};
