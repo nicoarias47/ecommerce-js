@@ -82,42 +82,51 @@
           </div>
           <div class="offcanvas-body">
             <h2 class="carrito-title">Productos</h2>
-            <div>
-              <table class="carrito-tabla">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>PRODUCTO</th>
-                    <th>CANT</th>
-                    <th>PRECIO</th>
-                  </tr>
-                </thead>
-                <tbody id="list-product"></tbody>
-              </table>
-              <div class="row">
-                <div class="col">
-                  <span class="carrito-items">Sub Total:</span>
-                </div>
-                <div class="col carrito-subTotal"></div>
+            <table class="carrito-tabla">
+              <thead>
+                <tr>
+                  <th>PRODUCTO</th>
+                  <th>CANT</th>
+                  <th>PRECIO</th>
+                </tr>
+              </thead>
+              <tbody id="list-items"></tbody>
+            </table>
+            <tbody id="list-product"></tbody>
+            <h2 class="carrito-title">PC Armada</h2>
+            <table class="carrito-tabla">
+              <thead>
+                <tr>
+                  <th>PRODUCTO</th>
+                  <th>CANT</th>
+                  <th>PRECIO</th>
+                </tr>
+              </thead>
+              <tbody id="list-product"></tbody>
+            </table>
+            <div class="row">
+              <div class="col">
+                <span class="carrito-items">Sub Total:</span>
               </div>
-              <div class="row">
-                <div class="col">
-                  <span class="carrito-items">Envio:</span>
-                </div>
-                <div class="col carrito-envio"></div>
+              <div class="col carrito-subTotal"></div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span class="carrito-items">Envio:</span>
               </div>
-              <div class="row">
-                <div class="col">
-                  <span class="carrito-items">IVA 21%:</span>
-                </div>
-                <div class="col carrito-iva"></div>
+              <div class="col carrito-envio"></div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span class="carrito-items">IVA 21%:</span>
               </div>
-              <div class="row">
-                <div class="col">
-                  <span class="carrito-items">TOTAL:</span>
-                </div>
-                <div class="col carrito-total"></div>
+              <div class="col carrito-iva"></div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <span class="carrito-items">TOTAL:</span>
               </div>
+              <div class="col carrito-total"></div>
             </div>
             <button class="btn btn-carrito" type="button">
               Finalizar Compra
@@ -409,10 +418,22 @@
     <!-- TEMPLATE CARRITO -->
     <template id="template-carrito">
       <tr class="item-productos">
-        <td>id</td>
         <td>producto</td>
         <td>cantidad</td>
         <td>precio</td>
+      </tr>
+    </template>
+    <!-- TEMPLATE SEGUNDO CARRITO -->
+    <template id="template-segundo-carrito">
+      <tr class="item-productos">
+        <td>producto</td>
+        <td>cantidad</td>
+        <td>precio</td>
+        <td>
+          <button class="trash-icon" id="delete-item">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </template>
     <!-- TEMPLATE COSTOS -->

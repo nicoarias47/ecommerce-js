@@ -29,10 +29,9 @@ const pintarCarrito = () => {
   Object.values(compra).forEach((producto) => {
     if (producto.price > 0) {
       // evitamos que muestre los productos con precio > 0
-      templateCarrito.querySelectorAll("td")[0].textContent = producto.id;
-      templateCarrito.querySelectorAll("td")[1].textContent = producto.name;
-      templateCarrito.querySelectorAll("td")[2].textContent = producto.amount;
-      templateCarrito.querySelectorAll("td")[3].textContent =
+      templateCarrito.querySelectorAll("td")[0].textContent = producto.name;
+      templateCarrito.querySelectorAll("td")[1].textContent = producto.amount;
+      templateCarrito.querySelectorAll("td")[2].textContent =
         producto.amount * producto.price;
 
       const clone = templateCarrito.cloneNode(true);

@@ -91,10 +91,21 @@ body {
 }
 
 .item-productos td {
-  max-width: 200px;
+  max-width: 180px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+.trash-icon {
+  border: none;
+  background-color: #353849;
+}
+.trash-icon i {
+  font-size: 15px;
+}
+.trash-icon i:hover {
+  color: #03cc90;
 }
 
 header {

@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mayorPrecio();
   menorPrecio();
   compraGet();
+  segundaCompraGet();
   showProduct(newArray);
 });
 
@@ -254,10 +255,9 @@ const pintarCarrito = () => {
   Object.values(compra).forEach((producto) => {
     if (producto.price > 0) {
       // evitamos que muestre los productos con precio > 0
-      templateCarrito.querySelectorAll("td")[0].textContent = producto.id;
-      templateCarrito.querySelectorAll("td")[1].textContent = producto.name;
-      templateCarrito.querySelectorAll("td")[2].textContent = producto.amount;
-      templateCarrito.querySelectorAll("td")[3].textContent =
+      templateCarrito.querySelectorAll("td")[0].textContent = producto.name;
+      templateCarrito.querySelectorAll("td")[1].textContent = producto.amount;
+      templateCarrito.querySelectorAll("td")[2].textContent =
         producto.amount * producto.price;
 
       const clone = templateCarrito.cloneNode(true);
@@ -447,4 +447,108 @@ const filtroGabinete = () => {
     newArray = array.filter((array) => array.name.includes("Gabinete"));
     showProduct(newArray);
   });
+};
+
+//--- SELECCION DE PRODUCTOS ---
+
+let compraItems = {};
+
+// --- AGREGAR AL CARRITO ---
+cards.addEventListener("click", (e) => {
+  addCarrito(e);
+});
+
+const addCarrito = (e) => {
+  if (e.target.classList.contains("btn-primary")) {
+    setCarrito(e.target.parentElement);
+  }
+
+  e.stopPropagation();
+};
+
+const setCarrito = (objeto) => {
+  const producto = {
+    id: objeto.querySelector("#btn-compra").dataset.id,
+    name: objeto.querySelector("#cTitle").textContent,
+    price: objeto.querySelector("#cText").textContent,
+    amount: 1,
+  };
+
+  if (compraItems.hasOwnProperty(producto.id)) {
+    producto.amount = compraItems[producto.id].amount + 1;
+  }
+
+  console.log(producto);
+  compraItems[producto.id] = { ...producto };
+  pintarSegundoCarrito();
+};
+
+// --- PINTAR SEGUNDO CARRITO --- (de productos individuales)
+
+const templateCarritoDos = document.querySelector(
+  "#template-segundo-carrito"
+).content;
+
+const list = document.querySelector("#list-items");
+
+const pintarSegundoCarrito = () => {
+  list.innerHTML = ""; // evitamos que recarge nuevamente los productos
+  Object.values(compraItems).forEach((producto) => {
+    if (producto.price > 0) {
+      // evitamos que muestre los productos con precio > 0
+      templateCarritoDos.querySelectorAll("td")[0].textContent = producto.name;
+      templateCarritoDos.querySelectorAll("td")[1].textContent =
+        producto.amount;
+      templateCarritoDos.querySelectorAll("td")[2].textContent =
+        producto.amount * producto.price;
+
+      const clone = templateCarritoDos.cloneNode(true);
+      fragment.appendChild(clone);
+    }
+  });
+  list.appendChild(fragment);
+
+  pintarCostosItems();
+  segundaCompraStorage();
+};
+
+// --- Pintamos los costos del segundo carrito --
+
+const pintarCostosItems = () => {
+  const subTotal = Object.values(compraItems).reduce(
+    (acc, { amount, price }) => acc + price * amount,
+    0
+  );
+
+  carritoSubTotal.textContent = "$ " + subTotal;
+
+  const iva = subTotal * 0.21;
+  carritoIva.textContent = "$ " + Math.trunc(iva);
+
+  let envio = 0;
+
+  const mostrarEnvio = () => {
+    if (total > 140000) {
+      envio = 0;
+    } else {
+      envio = 800;
+    }
+  };
+  const total = subTotal + iva + envio;
+  carritoTotal.textContent = "$ " + total;
+
+  mostrarEnvio();
+  carritoEnvio.textContent = "$ " + envio;
+};
+
+// --- LOCALSTORAGE 2DO CARRITO ---
+const segundaCompraStorage = () => {
+  localStorage.setItem("productos", JSON.stringify(compraItems));
+};
+
+const segundaCompraGet = () => {
+  if (localStorage.getItem("productos")) {
+    compraItems = JSON.parse(localStorage.getItem("productos"));
+    pintarSegundoCarrito();
+  }
 };
