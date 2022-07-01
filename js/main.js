@@ -256,6 +256,9 @@ document.addEventListener("DOMContentLoaded", () => {
   pasosObtener();
   iconSet();
   compraGet();
+  deleteAll();
+  segundaCompraGet();
+
   showProduct(array[i]);
 });
 
@@ -331,10 +334,6 @@ function removeCards() {
   for (let i = 0; i < removeCard.length; i++) {
     removeCard[i].remove();
   }
-  // removeCard[0].remove();
-  // removeCard[1].remove();
-  // removeCard[2].remove();
-  // removeCard[3].remove();
 }
 
 // --- PINTAR PANEL IZQ ---
@@ -534,4 +533,119 @@ const stopGet = () => {
   if (localStorage.getItem("stop")) {
     stop = JSON.parse(localStorage.getItem("stop"));
   }
+};
+
+// --- CARRITO DE PRODUCTOS (individuales) ----
+
+let compraItems = {};
+
+const segundaCompraGet = () => {
+  if (localStorage.getItem("productos")) {
+    compraItems = JSON.parse(localStorage.getItem("productos"));
+    pintarSegundoCarrito();
+  }
+};
+
+// --- PINTAR SEGUNDO CARRITO --- (de productos individuales)
+
+const templateCarritoDos = document.querySelector(
+  "#template-segundo-carrito"
+).content;
+
+const list = document.querySelector("#list-items");
+
+const pintarSegundoCarrito = () => {
+  list.innerHTML = ""; // evitamos que recarge nuevamente los productos
+  Object.values(compraItems).forEach((producto) => {
+    if (producto.price > 0) {
+      // evitamos que muestre los productos con precio > 0
+      templateCarritoDos.querySelectorAll("td")[0].textContent = producto.name;
+      templateCarritoDos.querySelectorAll("td")[1].textContent =
+        producto.amount;
+      templateCarritoDos.querySelectorAll("td")[2].textContent =
+        producto.amount * producto.price;
+      templateCarritoDos.querySelector(".fa-trash").dataset.id = producto.id;
+
+      const clone = templateCarritoDos.cloneNode(true);
+      fragment.appendChild(clone);
+    }
+  });
+  list.appendChild(fragment);
+
+  pintarCostosItems();
+};
+
+// --- Pintamos los costos del segundo carrito --
+
+const pintarCostosItems = () => {
+  const subTotal = Object.values(compraItems).reduce(
+    (acc, { amount, price }) => acc + price * amount,
+    0
+  );
+
+  carritoSubTotal.textContent = "$ " + subTotal;
+
+  const iva = subTotal * 0.21;
+  carritoIva.textContent = "$ " + Math.trunc(iva);
+
+  let envio = 0;
+
+  const mostrarEnvio = () => {
+    if (total > 140000) {
+      envio = 0;
+    } else {
+      envio = 800;
+    }
+  };
+  const total = subTotal + iva + envio;
+  carritoTotal.textContent = "$ " + total;
+
+  mostrarEnvio();
+  carritoEnvio.textContent = "$ " + envio;
+};
+
+// --- Eliminar productos del carrito ---
+
+// --- seteo el nuevo storage ---
+const segundaCompraStorage = () => {
+  localStorage.setItem("productos", JSON.stringify(compraItems));
+};
+
+const deleteAll = () => {
+  const deleteAll = document.querySelector("#delete-all");
+
+  deleteAll.addEventListener("click", () => {
+    compraItems = {};
+    compra = {};
+    localStorage.clear();
+    i = 0;
+    stop = 0;
+    pintarSegundoCarrito();
+
+    pintarCarrito();
+
+    location.reload();
+  });
+};
+
+list.addEventListener("click", (e) => {
+  deleteItem(e);
+});
+
+const deleteItem = (e) => {
+  e.target;
+
+  if (e.target.classList.contains("fa-trash")) {
+    const producto = compraItems[e.target.dataset.id];
+    producto.amount--;
+
+    if (producto.amount === 0) {
+      delete compraItems[e.target.dataset.id];
+    }
+    segundaCompraStorage();
+
+    pintarSegundoCarrito();
+  }
+
+  e.stopPropagation();
 };

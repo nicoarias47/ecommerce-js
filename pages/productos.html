@@ -131,6 +131,9 @@
             <button class="btn btn-carrito" type="button">
               Finalizar Compra
             </button>
+            <button class="btn btn-carrito" type="button" id="delete-all">
+              Vaciar Carrito
+            </button>
           </div>
         </div>
         <!-- Button to open the offcanvas sidebar -->
@@ -431,7 +434,7 @@
         <td>precio</td>
         <td>
           <button class="trash-icon" id="delete-item">
-            <i class="fa-solid fa-trash"></i>
+            <i class="fa-solid fa-trash" data-id="1"></i>
           </button>
         </td>
       </tr>
@@ -452,6 +455,6 @@
       crossorigin="anonymous"
     ></script>
     <!-- My Js -->
-    <script src="../js/products.js" type="module"></script>
+    <script src="../js/products.js"></script>
   </body>
 </html>

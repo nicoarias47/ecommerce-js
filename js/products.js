@@ -223,12 +223,14 @@ document.addEventListener("DOMContentLoaded", () => {
   filtroGabinete();
   mayorPrecio();
   menorPrecio();
+  deleteAll();
   compraGet();
   segundaCompraGet();
   showProduct(newArray);
 });
 
-// -- localStorage -- traemos el carrito del localStorage
+// -- localStorage -- traemos el carrito de arma tu pc del localStorage
+let compra = {};
 const compraGet = () => {
   if (localStorage.getItem("compra")) {
     compra = JSON.parse(localStorage.getItem("compra"));
@@ -243,12 +245,6 @@ const templateCarrito = document.querySelector("#template-carrito").content;
 const fragment = document.createDocumentFragment();
 
 const listProducts = document.querySelector("#list-product"); // donde se colocaran nuestros productos
-
-// - Donde se pintaran nuestros costos
-const carritoSubTotal = document.querySelector(".carrito-subTotal");
-const carritoEnvio = document.querySelector(".carrito-envio");
-const carritoIva = document.querySelector(".carrito-iva");
-const carritoTotal = document.querySelector(".carrito-total");
 
 const pintarCarrito = () => {
   listProducts.innerHTML = ""; // evitamos que recarge nuevamente los productos
@@ -268,6 +264,12 @@ const pintarCarrito = () => {
 
   pintarCostos();
 };
+
+// - Donde se pintaran nuestros costos
+const carritoSubTotal = document.querySelector(".carrito-subTotal");
+const carritoEnvio = document.querySelector(".carrito-envio");
+const carritoIva = document.querySelector(".carrito-iva");
+const carritoTotal = document.querySelector(".carrito-total");
 
 // --- PINTANDO LOS COSTOS ---
 const pintarCostos = () => {
@@ -500,6 +502,7 @@ const pintarSegundoCarrito = () => {
         producto.amount;
       templateCarritoDos.querySelectorAll("td")[2].textContent =
         producto.amount * producto.price;
+      templateCarritoDos.querySelector(".fa-trash").dataset.id = producto.id;
 
       const clone = templateCarritoDos.cloneNode(true);
       fragment.appendChild(clone);
@@ -550,4 +553,43 @@ const segundaCompraGet = () => {
     compraItems = JSON.parse(localStorage.getItem("productos"));
     pintarSegundoCarrito();
   }
+};
+
+// --- Eliminar productos del carrito ---
+
+const deleteAll = () => {
+  const deleteAll = document.querySelector("#delete-all");
+
+  deleteAll.addEventListener("click", () => {
+    compraItems = {};
+    compra = {};
+    localStorage.clear();
+
+    pintarSegundoCarrito();
+
+    pintarCarrito();
+
+    location.reload();
+  });
+};
+
+list.addEventListener("click", (e) => {
+  deleteItem(e);
+});
+
+const deleteItem = (e) => {
+  e.target;
+
+  if (e.target.classList.contains("fa-trash")) {
+    const producto = compraItems[e.target.dataset.id];
+    producto.amount--;
+
+    if (producto.amount === 0) {
+      delete compraItems[e.target.dataset.id];
+    }
+    segundaCompraStorage();
+    pintarSegundoCarrito();
+  }
+
+  e.stopPropagation();
 };
