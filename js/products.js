@@ -1,4 +1,4 @@
-// OBJETOS
+// OBJETOS;
 
 const array = [
   {
