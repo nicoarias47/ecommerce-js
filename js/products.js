@@ -212,20 +212,9 @@ const array = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  filtroTodos();
-  filtroMicro();
-  filtroCooler();
-  filtroMother();
-  filtroRam();
-  filtroVideo();
-  filtroDisco();
-  filtroFuente();
-  filtroGabinete();
-  mayorPrecio();
-  menorPrecio();
-  deleteAll();
   compraGet();
   segundaCompraGet();
+  costosArmarPcStorageGet();
   showProduct(newArray);
 });
 
@@ -262,42 +251,7 @@ const pintarCarrito = () => {
   });
   listProducts.appendChild(fragment);
 
-  pintarCostos();
-};
-
-// - Donde se pintaran nuestros costos
-const carritoSubTotal = document.querySelector(".carrito-subTotal");
-const carritoEnvio = document.querySelector(".carrito-envio");
-const carritoIva = document.querySelector(".carrito-iva");
-const carritoTotal = document.querySelector(".carrito-total");
-
-// --- PINTANDO LOS COSTOS ---
-const pintarCostos = () => {
-  const subTotal = Object.values(compra).reduce(
-    (acc, { amount, price }) => acc + price * amount,
-    0
-  );
-
-  carritoSubTotal.textContent = "$ " + subTotal;
-
-  const iva = subTotal * 0.21;
-  carritoIva.textContent = "$ " + Math.trunc(iva);
-
-  let envio = 0;
-
-  const mostrarEnvio = () => {
-    if (total > 140000) {
-      envio = 0;
-    } else {
-      envio = 800;
-    }
-  };
-
-  const total = subTotal + iva + envio;
-  carritoTotal.textContent = "$ " + total;
-
-  mostrarEnvio();
-  carritoEnvio.textContent = "$ " + envio;
+  setCostosItems();
 };
 
 // - template cards -
@@ -510,40 +464,125 @@ const pintarSegundoCarrito = () => {
   });
   list.appendChild(fragment);
 
-  pintarCostosItems();
   segundaCompraStorage();
+  setCostosItems();
+  costosItemStorage();
+  pintarCostos();
 };
 
 // --- Pintamos los costos del segundo carrito --
 
-const pintarCostosItems = () => {
-  const subTotal = Object.values(compraItems).reduce(
+let costosItems = {
+  total: 0,
+  subTotal: 0,
+  iva: 0,
+  envio: 0,
+};
+
+let costosPc = {
+  total: 0,
+  subTotal: 0,
+  iva: 0,
+  envio: 0,
+};
+
+// --- Enviamos los costos al local storage ---
+const setCostosItems = () => {
+  let subTotalPc = Object.values(compraItems).reduce(
     (acc, { amount, price }) => acc + price * amount,
     0
   );
 
-  carritoSubTotal.textContent = "$ " + subTotal;
+  let ivaPc = subTotalPc * 0.21;
 
-  const iva = subTotal * 0.21;
-  carritoIva.textContent = "$ " + Math.trunc(iva);
-
-  let envio = 0;
+  let envioPc = 0;
 
   const mostrarEnvio = () => {
-    if (total > 140000) {
-      envio = 0;
+    if (totalPc > 140000) {
+      envioPc = 0;
     } else {
-      envio = 800;
+      envioPc = 800;
     }
   };
-  const total = subTotal + iva + envio;
-  carritoTotal.textContent = "$ " + total;
+
+  let totalPc = subTotalPc + ivaPc + envioPc;
 
   mostrarEnvio();
-  carritoEnvio.textContent = "$ " + envio;
+  costosItems.total = totalPc;
+  costosItems.subTotal = subTotalPc;
+  costosItems.iva = ivaPc;
+  costosItems.envio = envioPc;
 };
 
-// --- LOCALSTORAGE 2DO CARRITO ---
+// -- storage de costos por items --
+const costosItemStorage = () => {
+  localStorage.setItem("costosItems", JSON.stringify(costosItems));
+  costosItemGet();
+};
+
+const costosItemGet = () => {
+  if (localStorage.getItem("costosItems")) {
+    costosItems = JSON.parse(localStorage.getItem("costosItems"));
+    pintarCostos();
+  }
+};
+
+// -- recuperamos los costos de arma tu pc --
+const costosArmarPcStorageGet = () => {
+  if (localStorage.getItem("costos pc")) {
+    costosPc = JSON.parse(localStorage.getItem("costos pc"));
+    pintarCostos();
+  }
+};
+
+// --- PINTAR COSTOS EN CARRITO ---
+
+// - Donde se pintaran nuestros costos
+const carritoSubTotal = document.querySelector(".carrito-subTotal");
+const carritoEnvio = document.querySelector(".carrito-envio");
+const carritoIva = document.querySelector(".carrito-iva");
+const carritoTotal = document.querySelector(".carrito-total");
+
+const pintarCostos = () => {
+  if (costosPc.subTotal > 0 && costosItems.subTotal <= 0) {
+    carritoSubTotal.textContent = "$ " + costosPc.subTotal;
+    carritoIva.textContent = "$ " + Math.trunc(costosPc.iva);
+    carritoTotal.textContent = "$ " + costosPc.total;
+    carritoEnvio.textContent = "$ " + costosPc.envio;
+  } else if (costosItems.subTotal > 0 && costosPc.subTotal <= 0) {
+    carritoSubTotal.textContent = "$ " + costosItems.subTotal;
+    carritoIva.textContent = "$ " + Math.trunc(costosItems.iva);
+    carritoTotal.textContent = "$ " + costosItems.total;
+    carritoEnvio.textContent = "$ " + costosItems.envio;
+  } else if (costosPc.subTotal > 0 && costosItems.subTotal > 0) {
+    let costosTotal = {
+      total: 0,
+      subTotal: 0,
+      envio: 0,
+      iva: 0,
+    };
+
+    costosTotal.total = costosPc.total + costosItems.total;
+    costosTotal.subTotal = costosPc.subTotal + costosItems.subTotal;
+    costosTotal.iva = costosPc.iva + costosItems.iva;
+    if (costosTotal.total > 140000) {
+      costosTotal.envio = 0;
+    } else {
+      costosTotal.envio = 800;
+    }
+    carritoSubTotal.textContent = "$ " + costosTotal.subTotal;
+    carritoIva.textContent = "$ " + Math.trunc(costosTotal.iva);
+    carritoTotal.textContent = "$ " + costosTotal.total;
+    carritoEnvio.textContent = "$ " + costosTotal.envio;
+  } else {
+    carritoSubTotal.textContent = "$ " + costosPc.subTotal;
+    carritoIva.textContent = "$ " + Math.trunc(costosPc.iva);
+    carritoTotal.textContent = "$ " + costosPc.total;
+    carritoEnvio.textContent = "$ " + costosPc.envio;
+  }
+};
+
+// --- LOCALSTORAGE 2DO CARRITO ("PRODUCTOS")---
 const segundaCompraStorage = () => {
   localStorage.setItem("productos", JSON.stringify(compraItems));
 };
@@ -593,3 +632,16 @@ const deleteItem = (e) => {
 
   e.stopPropagation();
 };
+
+filtroTodos();
+filtroMicro();
+filtroCooler();
+filtroMother();
+filtroRam();
+filtroVideo();
+filtroDisco();
+filtroFuente();
+filtroGabinete();
+mayorPrecio();
+menorPrecio();
+deleteAll();
