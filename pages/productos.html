@@ -160,13 +160,21 @@
           <div class="row d-flex justify-content-between">
             <div class="col-4">
               <div class="col productos">
-                <div class="productos-icons d-flex justify-content-end">
-                  <button class="productos-icons-btn">
-                    <i class="fa-solid fa-list"></i>
+                <div class="col d-flex justify-content-end">
+                  <button class="productos-icons-btn" id="btn-row">
+                    <i class="fa-solid fa-list" id="btn-row-icon"></i>
                   </button>
-                  <button class="productos-icons-btn">
-                    <i class="fa-solid fa-grip"></i>
+                  <button class="productos-icons-btn" id="btn-col">
+                    <i class="fa-solid fa-grip" id="btn-col-icon"></i>
                   </button>
+                </div>
+                <div class="productos-icons">
+                  <span class="title-buscador">Buscar productos:</span>
+                  <div class="row d-flex justify-content-between">
+                    <div class="col">
+                      <input type="text" id="buscador" class="form-control" />
+                    </div>
+                  </div>
                 </div>
                 <div class="productos-lista d-flex flex-column">
                   <h1 class="productos-title">Ordenar productos</h1>
@@ -199,6 +207,7 @@
                 </div>
               </div>
             </div>
+
             <div
               class="col-7 items d-flex flex-wrap gap-4 text-center"
               id="items"
@@ -409,7 +418,7 @@
     </footer>
     <!-- TEMPLATE CARDS -->
     <template id="template">
-      <div class="card" style="width: 13rem" id="card-remove">
+      <div id="card-remove" class="card">
         <img src="" class="card-img-top" id="card-img" alt="..." />
         <div class="card-body">
           <h5 class="card-title" id="cTitle">asdad</h5>

@@ -1,6 +1,14 @@
-// OBJETOS;
+// OBJETOS
 
 const array = [
+  // ---  microprocesador ---
+  {
+    id: 5,
+    name: "Micro AMD Ryzen 3 4100 4.0 Ghz AM4 OEM",
+    img: "../img/componentes/micro/micro-5.jpg",
+    precio: 17080,
+  },
+
   {
     id: 1,
     name: "Micro AMD athlon 3000G 3.5 Ghz AM4",
@@ -20,6 +28,12 @@ const array = [
     precio: 43150,
   },
   {
+    id: 6,
+    name: "Micro AMD Ryzen 7 5700G 4.6 Ghz AM4",
+    img: "../img/componentes/micro/micro-6.jpg",
+    precio: 54754,
+  },
+  {
     id: 4,
     name: "Micro AMD Ryzen 9 5900x 4.8 Ghz AM4",
     img: "../img/componentes/micro/micro-4.jpg",
@@ -35,10 +49,28 @@ const array = [
     precio: 0,
   },
   {
+    id: 18,
+    name: "CPU Cooler ID-Cooling SE-902-SD",
+    img: "../img/componentes/cooler/cooler-8.jpg",
+    precio: 2199,
+  },
+  {
     id: 12,
     name: "CPU Cooler Xigmatek WindPower WP963 RGB",
     img: "../img/componentes/cooler/cooler-2.jpg",
     precio: 3380,
+  },
+  {
+    id: 15,
+    name: "CPU Cooler Master Hyper H411R WHITE LED",
+    img: "../img/componentes/cooler/cooler-5.jpg",
+    precio: 5330,
+  },
+  {
+    id: 16,
+    name: "CPU CoolerMaster Hyper 212 LED Turbo WHITE EDITION",
+    img: "../img/componentes/cooler/cooler-6.jpg",
+    precio: 8649,
   },
   {
     id: 13,
@@ -52,8 +84,27 @@ const array = [
     img: "../img/componentes/cooler/cooler-4.jpg",
     precio: 23500,
   },
+  {
+    id: 19,
+    name: "CPU Watercooler Coolermaster Masterliquid ML240L V2 ARGB",
+    img: "../img/componentes/cooler/cooler-9.jpg",
+    precio: 24275,
+  },
+  {
+    id: 17,
+    name: "CPU Watercooler 360MM Corsair 3X Cooler BLACK",
+    img: "../img/componentes/cooler/cooler-7.jpg",
+    precio: 51578,
+  },
 
-  // motherboard
+  //MOTHERBOARD
+
+  {
+    id: 25,
+    name: "Motherboard Msi A320-A Pro Max Compatible 5Ta Generacion",
+    img: "../img/componentes/mother/mother-5.jpg",
+    precio: 8266,
+  },
   {
     id: 21,
     name: "Motherboard Arock B450M PRO4 AM4",
@@ -73,12 +124,24 @@ const array = [
     precio: 15149,
   },
   {
+    id: 26,
+    name: "Motherboard Asus B550M-PLUS TUF Gaming Dual M.2 (Wifi)",
+    img: "../img/componentes/mother/mother-6.jpg",
+    precio: 26834,
+  },
+  {
+    id: 27,
+    name: "Motherboard Msi B550 Gaming Plus AM4 DDR4",
+    img: "../img/componentes/mother/mother-7.jpg",
+    precio: 27232,
+  },
+  {
     id: 24,
     name: "Motherboard Gigabyte B550 Aorus Elite AX V2 AM4",
     img: "../img/componentes/mother/mother-4.jpg",
     precio: 36750,
   },
-  // ram
+  //RAM
   {
     id: 30,
     name: "No incluir Memoria RAM",
@@ -92,10 +155,22 @@ const array = [
     precio: 3850,
   },
   {
+    id: 35,
+    name: "Memoria Ram Kingston Fury Beast 4GB 2666 Mhz DDR4",
+    img: "../img/componentes/ram/ram-5.jpg",
+    precio: 4800,
+  },
+  {
     id: 32,
     name: "Memoria Ram PNY Performance 8GB 2666 Mhz DDR4",
     img: "../img/componentes/ram/ram-2.jpg",
     precio: 5650,
+  },
+  {
+    id: 36,
+    name: "Memoria Ram PNY XLR8 GAMING 8GB 3200Mhz RGB DDR4",
+    img: "../img/componentes/ram/ram-6.jpg",
+    precio: 6641,
   },
   {
     id: 33,
@@ -104,12 +179,30 @@ const array = [
     precio: 7540,
   },
   {
+    id: 37,
+    name: "Memoria Ram 8GB DDR4 3466 Mhz Hyperx Fury RGB Kingston",
+    img: "../img/componentes/ram/ram-7.jpg",
+    precio: 8720,
+  },
+  {
+    id: 39,
+    name: "Memoria Ram Corsair 16GB DDR4 2666 Value",
+    img: "../img/componentes/ram/ram-9.jpg",
+    precio: 11760,
+  },
+  {
+    id: 38,
+    name: "Memoria Ram Corsair 16GB DDR4 3000 Vengeance LPX",
+    img: "../img/componentes/ram/ram-8.jpg",
+    precio: 20500,
+  },
+  {
     id: 34,
     name: "Memoria Ram Adata Xpg Spectrix D50 RGB 32GB 3200 Mhz DDR4 Grey",
     img: "../img/componentes/ram/ram-4.jpg",
     precio: 22655,
   },
-  // video
+  // Placas de video
   {
     id: 41,
     name: "No Incluir Placa de Video",
@@ -117,10 +210,40 @@ const array = [
     precio: 0,
   },
   {
+    id: 45,
+    name: "Placa de Video Geforce GT 730 2GB Gigabyte DDR3",
+    img: "../img/componentes/placaVideo/video-5.jpg",
+    precio: 15910,
+  },
+  {
+    id: 46,
+    name: "Placa de Video Radeon RX 550 AMD 2GB DDR5 LOW Profile OEM",
+    img: "../img/componentes/placaVideo/video-6.jpg",
+    precio: 21800,
+  },
+  {
     id: 42,
     name: "Placa de Video Asus Nvidia Geforce GTX 1650 OC 4GB GDDR6",
     img: "../img/componentes/placaVideo/video-2.jpg",
     precio: 49900,
+  },
+  {
+    id: 47,
+    name: "Placa de Video RX 6500 XT 4GB MSI Mech 2X OC",
+    img: "../img/componentes/placaVideo/video-7.jpg",
+    precio: 79100,
+  },
+  {
+    id: 48,
+    name: "Placa de Video Geforce RTX 3050 8GB Asus Dual",
+    img: "../img/componentes/placaVideo/video-8.jpg",
+    precio: 95500,
+  },
+  {
+    id: 49,
+    name: "Placa de Video Power Color Radeon Rx 6700 XT ReD Evil 12GB GDDR6",
+    img: "../img/componentes/placaVideo/video-9.jpg",
+    precio: 110000,
   },
   {
     id: 43,
@@ -134,12 +257,18 @@ const array = [
     img: "../img/componentes/placaVideo/video-4.jpg",
     precio: 224000,
   },
-  // disco
+  // DISCOS
   {
     id: 51,
     name: "No agregar Disco",
     img: "../img/componentes/disco/noDisco.svg",
     precio: 0,
+  },
+  {
+    id: 55,
+    name: "Disco Solido SSD 120GB Netac N535S 2.5 Sata III",
+    img: "../img/componentes/disco/disco-4.jpg",
+    precio: 2812,
   },
   {
     id: 52,
@@ -154,17 +283,35 @@ const array = [
     precio: 6250,
   },
   {
+    id: 56,
+    name: "Disco Solido SSD 480GB Western Digital SN350 Green M.2 NVMe PCIe X4 3.0",
+    img: "../img/componentes/disco/disco-5.jpg",
+    precio: 7511,
+  },
+  {
     id: 54,
     name: "Disco Solido SSD 512GB Gigabyte M.2 NVMe PCIe x4 3.0",
     img: "../img/componentes/disco/disco-3.jpg",
     precio: 9850,
   },
-  //fuente
+  {
+    id: 57,
+    name: "Disco HDD 2TB SATA3 Wd Purple",
+    img: "../img/componentes/disco/disco-6.jpg",
+    precio: 10500,
+  },
+  // FUENTES
   {
     id: 61,
     name: "No agregar fuente",
     img: "../img/componentes/fuente/noFuente.svg",
     precio: 0,
+  },
+  {
+    id: 65,
+    name: "Fuente 500W Thermaltake Smart 80 PLUS White",
+    img: "../img/componentes/fuente/fuente-4.jpg",
+    precio: 8020,
   },
   {
     id: 62,
@@ -173,10 +320,28 @@ const array = [
     precio: 9239,
   },
   {
+    id: 66,
+    name: "Fuente 600W Gamemax VP-600 RGB 80 PLUS Bronze",
+    img: "../img/componentes/fuente/fuente-5.jpg",
+    precio: 9817,
+  },
+  {
+    id: 67,
+    name: "Fuente 700W Gamermax VP-700 80 PLUS Bronze",
+    img: "../img/componentes/fuente/fuente-6.jpg",
+    precio: 12442,
+  },
+  {
     id: 63,
     name: "Fuente 750W Gigabyte AORUS AP750GM 80 PLUS GOLD",
     img: "../img/componentes/fuente/fuente-2.jpg",
     precio: 23998,
+  },
+  {
+    id: 68,
+    name: "Fuente 750W Corsair CX750F Full Modular 80 PLUS Bronze RGB W",
+    img: "../img/componentes/fuente/fuente-7.jpg",
+    precio: 27450,
   },
   {
     id: 64,
@@ -184,7 +349,8 @@ const array = [
     img: "../img/componentes/fuente/fuente-3.jpg",
     precio: 34580,
   },
-  //gabinetes
+
+  // GABINETES
   {
     id: 71,
     name: "No incluir Gabinete",
@@ -198,6 +364,12 @@ const array = [
     precio: 4950,
   },
   {
+    id: 75,
+    name: "Gabinete Xigmatek Vortex Artic",
+    img: "../img/componentes/gabinete/gabinete-4.jpg",
+    precio: 6850,
+  },
+  {
     id: 73,
     name: "Gabinete Gamer FALCOM G-8012 RAINBOW",
     img: "../img/componentes/gabinete/gabinete-2.jpg",
@@ -208,6 +380,24 @@ const array = [
     name: "Gabinete Xigmatek Gaming X 6 Fan Edition - No LED",
     img: "../img/componentes/gabinete/gabinete-3.jpg",
     precio: 9308,
+  },
+  {
+    id: 76,
+    name: "Gabinete Gamer Aureox Sculptor ARX380G",
+    img: "../img/componentes/gabinete/gabinete-5.jpg",
+    precio: 10500,
+  },
+  {
+    id: 77,
+    name: "Gabinete Corsair Carbide Spec Delta RGB 3 Fun",
+    img: "../img/componentes/gabinete/gabinete-6.jpg",
+    precio: 15500,
+  },
+  {
+    id: 78,
+    name: "Gabinete Corsair ICUE 220T RGB TG-Tower Black",
+    img: "../img/componentes/gabinete/gabinete-7.jpg",
+    precio: 20560,
   },
 ];
 
@@ -633,6 +823,96 @@ const deleteItem = (e) => {
   e.stopPropagation();
 };
 
+// --- BUSCADOR DE ITEMS ---
+
+const formulario = document.querySelector("#buscador");
+
+const buscar = () => {
+  cards.innerHTML = "";
+
+  const texto = formulario.value.toLowerCase();
+
+  for (let producto of newArray) {
+    let nombre = producto.name.toLowerCase();
+    if (nombre.indexOf(texto) !== -1) {
+      removeCards();
+      cards.innerHTML += `
+      <div class="card-search" style="width: 13rem" id="card-remove">
+        <img src="${producto.img}" class="card-img-top" id="card-img" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title" id="cTitle">${producto.name}</h5>
+          <p class="card-text" id="cText">${producto.precio}</p>
+           <button class="btn btn-primary" id="btn-compra">Comprar</button>
+        </div>
+      </div>
+      `;
+    }
+    //Solucionar: se bugea
+    // if (!cards.classList.contains("card-search")) {
+    //   cards.innerHTML = `<h2 class="noSearch">No se han encontrado coincidencias</h2>`;
+    // }
+  }
+};
+
+formulario.addEventListener("keyup", buscar);
+
+// --- cards direccion (col - row) ---
+
+const btnRow = document.getElementById("btn-row");
+const btnCol = document.getElementById("btn-col");
+
+const cardId = template.querySelector("#card-remove");
+
+const cardRow = () => {
+  cardId.classList.remove("card");
+  cardId.classList.add("card-row");
+  cards.classList.add("flex-column");
+};
+
+const cardColumn = () => {
+  cardId.classList.remove("card-row");
+  cards.classList.remove("flex-column");
+  cardId.classList.add("card");
+};
+
+btnCol.addEventListener("click", () => {
+  // primero eliminamos todas las cards con class .card-row
+  let cards = document.querySelectorAll(".card-row");
+  for (let i = 0; i < cards.length; i++) {
+    document.querySelector(".card-row").remove();
+  }
+  cardColumn();
+  showProduct(newArray);
+  btnActive();
+});
+
+btnRow.addEventListener("click", () => {
+  removeCards();
+  cardRow();
+  showProduct(newArray);
+  btnActive();
+});
+
+// -- background de btn orden (col, row) --
+const btnActive = () => {
+  if (cardId.classList.contains("card")) {
+    btnCol.classList.add("btn-background");
+    document.querySelector("#btn-col-icon").style.color = "#03cc90";
+  } else {
+    btnCol.classList.remove("btn-background");
+    document.querySelector("#btn-col-icon").style.color = "#353849";
+  }
+
+  if (cardId.classList.contains("card-row")) {
+    btnRow.classList.add("btn-background");
+    document.querySelector("#btn-row-icon").style.color = "#03cc90";
+  } else {
+    btnRow.classList.remove("btn-background");
+    document.querySelector("#btn-row-icon").style.color = "#353849";
+  }
+};
+
+btnActive();
 filtroTodos();
 filtroMicro();
 filtroCooler();

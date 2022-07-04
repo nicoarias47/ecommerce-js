@@ -214,15 +214,6 @@ header {
   border-radius: 0.4rem;
   padding: 1rem;
 }
-.productos-icons {
-  font-size: 23px;
-}
-.productos-icons-btn {
-  margin-left: 1rem;
-  border: none;
-  background-color: #ffffff;
-  padding: 0.2rem;
-}
 .productos-title {
   font-size: 1.2rem;
   font-weight: 500;
@@ -235,6 +226,46 @@ header {
   color: #353849;
   padding-bottom: 0.5rem;
   cursor: pointer;
+}
+
+.productos-icons-btn {
+  font-size: 23px;
+  padding: 0 7px;
+  margin-left: 1rem;
+  border: none;
+  background-color: #ffffff;
+}
+.productos-icons-btn i {
+  color: #353849;
+}
+
+.btn-background {
+  background-color: #ffffff;
+  border-radius: 0.4rem;
+  box-shadow: -1px 1px 6px #03cc90;
+}
+
+#buscador {
+  width: 280px;
+  height: 26px;
+  border-radius: 0.4rem;
+  font-size: 0.8rem;
+  padding-left: 0.4rem;
+  color: #232734;
+  font-weight: 500;
+  border: 2px solid #03cc90;
+  margin-bottom: 1rem;
+}
+#buscador:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.title-buscador {
+  display: inline-block;
+  color: #03cc90;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .img-productos {
@@ -298,6 +329,7 @@ header {
   background-color: #ffffff;
   box-shadow: 3px 5px 4px #232734;
   border: none;
+  width: 13rem;
 }
 .card-title {
   font-size: 1.2rem;
@@ -309,6 +341,17 @@ header {
   font-weight: 500;
   color: #03cc90;
 }
+.card-img-top {
+  width: 192px;
+  height: 192px;
+}
+
+.card-search {
+  padding: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 3px 5px 4px #232734;
+  border: none;
+}
 
 .btn-primary {
   background-color: #03cc90;
@@ -316,6 +359,40 @@ header {
 }
 .btn-primary:hover {
   background-color: #232734;
+}
+
+.barra-pasos {
+  background-color: #353849;
+  box-shadow: 3px 5px 4px #232734;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+}
+.barra-pasos .btn-back {
+  background-color: #03cc90;
+  color: #ffffff;
+  border: none;
+  padding: 0.3rem;
+  border-radius: 0.4rem;
+  box-shadow: 2px 2px 3px #232734;
+}
+.barra-pasos .btn-back:hover {
+  background-color: #232734;
+  color: #03cc90;
+}
+
+.card-row {
+  padding: 0.5rem;
+  background-color: #ffffff;
+  box-shadow: 3px 5px 4px #232734;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */

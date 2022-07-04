@@ -65,6 +65,7 @@
   background-color: $color-2;
   box-shadow: 3px 5px 4px $color-4;
   border: none;
+  width: 13rem;
 
   &-title {
     font-size: 1.2rem;
@@ -77,6 +78,18 @@
     font-weight: 500;
     color: $color-3;
   }
+
+  &-img-top {
+    width: 192px;
+    height: 192px;
+  }
+}
+
+.card-search {
+  padding: 0.5rem;
+  background-color: $color-2;
+  box-shadow: 3px 5px 4px $color-4;
+  border: none;
 }
 
 .btn-primary {
@@ -86,4 +99,43 @@
   &:hover {
     background-color: $color-4;
   }
+}
+
+.barra-pasos {
+  background-color: $color-1;
+  box-shadow: 3px 5px 4px $color-4;
+  color: $color-2;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+
+  .btn-back {
+    background-color: $color-3;
+    color: $color-2;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 0.4rem;
+    box-shadow: 2px 2px 3px $color-4;
+  }
+
+  .btn-back:hover {
+    background-color: $color-4;
+    color: $color-3;
+  }
+}
+
+// class para cards en formato row
+
+.card-row {
+  padding: 0.5rem;
+  background-color: $color-2;
+  box-shadow: 3px 5px 4px $color-4;
+  border: none;
+  // new
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
