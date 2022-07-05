@@ -516,9 +516,7 @@ const addCarrito = (e) => {
     i++; // aumentamos "i" de array
     removeCards(); // removemos antiguas tarjetas
 
-    if (i < 9) {
-      showProduct(array[i]);
-    }
+    i < 9 && showProduct(array[i]); // si pasos es -9 recargamos el siguiente paso
   }
 
   e.stopPropagation();
@@ -988,3 +986,28 @@ const pasosBarra = () => {
       break;
   }
 };
+
+// ejemplo de desestructuracion
+
+const microprocesadores = {
+  precio: 15000,
+  distribuidores: {
+    intel: {
+      tel: 11195423,
+      pais: "BsAs",
+    },
+    amd: {
+      tel: 297482165,
+      pais: "Cuba",
+    },
+  },
+};
+
+const {
+  distribuidores: {
+    amd: { tel, pais },
+  },
+} = microprocesadores;
+
+console.log(tel);
+console.log(pais);
