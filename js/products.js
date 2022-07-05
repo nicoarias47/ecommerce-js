@@ -480,6 +480,7 @@ let newArray = array;
 const mayorPrecio = () => {
   document.querySelector("#mayorPrecio").addEventListener("click", () => {
     removeCards();
+    removeCardsRow(); // con esto eliminamos las cards en vista de rows
 
     newArray.sort(function (a, b) {
       if (a.precio < b.precio) {
@@ -499,6 +500,7 @@ const mayorPrecio = () => {
 const menorPrecio = () => {
   document.querySelector("#menorPrecio").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
 
     newArray.sort(function (a, b) {
       if (a.precio > b.precio) {
@@ -518,6 +520,7 @@ const menorPrecio = () => {
 const filtroTodos = () => {
   document.querySelector("#filtro-todos").addEventListener("click", () => {
     removeCards();
+    removeCardsRow(); // con esto eliminamos las cards en vista de rows
     newArray = array;
     newArray.sort((a, b) => Math.random() - 0.5);
     showProduct(newArray);
@@ -527,6 +530,7 @@ const filtroTodos = () => {
 const filtroMicro = () => {
   document.querySelector("#filtro-micro").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Micro"));
     showProduct(newArray);
@@ -536,6 +540,7 @@ const filtroMicro = () => {
 const filtroCooler = () => {
   document.querySelector("#filtro-cooler").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Cooler"));
     showProduct(newArray);
@@ -545,6 +550,7 @@ const filtroCooler = () => {
 const filtroMother = () => {
   document.querySelector("#filtro-mother").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Mother"));
     showProduct(newArray);
@@ -554,6 +560,7 @@ const filtroMother = () => {
 const filtroRam = () => {
   document.querySelector("#filtro-ram").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Ram"));
     showProduct(newArray);
@@ -563,6 +570,7 @@ const filtroRam = () => {
 const filtroVideo = () => {
   document.querySelector("#filtro-video").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Video"));
     showProduct(newArray);
@@ -571,6 +579,7 @@ const filtroVideo = () => {
 const filtroDisco = () => {
   document.querySelector("#filtro-disco").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Disco"));
     showProduct(newArray);
@@ -580,6 +589,7 @@ const filtroDisco = () => {
 const filtroFuente = () => {
   document.querySelector("#filtro-fuente").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Fuente"));
     showProduct(newArray);
@@ -589,6 +599,7 @@ const filtroFuente = () => {
 const filtroGabinete = () => {
   document.querySelector("#filtro-gabinete").addEventListener("click", () => {
     removeCards();
+    removeCardsRow();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Gabinete"));
     showProduct(newArray);
@@ -835,9 +846,11 @@ const buscar = () => {
   for (let producto of newArray) {
     let nombre = producto.name.toLowerCase();
     if (nombre.indexOf(texto) !== -1) {
-      removeCards();
-      cards.innerHTML += `
-      <div class="card-search" style="width: 13rem" id="card-remove">
+      // con los if de abajo creamos cards nuevas dependiendo de la vista (row o col)
+
+      if (btnCol.classList.contains("btn-background") && producto.precio > 0) {
+        cards.innerHTML += `
+      <div class="card"  id="card-remove">
         <img src="${producto.img}" class="card-img-top" id="card-img" alt="..." />
         <div class="card-body">
           <h5 class="card-title" id="cTitle">${producto.name}</h5>
@@ -846,15 +859,28 @@ const buscar = () => {
         </div>
       </div>
       `;
+      }
+      if (btnRow.classList.contains("btn-background") && producto.precio > 0) {
+        cards.innerHTML += `
+      <div class="card-row"  id="card-remove">
+        <img src="${producto.img}" class="card-img-top" id="card-img" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title" id="cTitle">${producto.name}</h5>
+          <p class="card-text" id="cText">${producto.precio}</p>
+           <button class="btn btn-primary" id="btn-compra">Comprar</button>
+        </div>
+      </div>
+      `;
+      }
     }
     //Solucionar: se bugea
-    // if (!cards.classList.contains("card-search")) {
+    // if (!cards.classList.contains("card")) {
     //   cards.innerHTML = `<h2 class="noSearch">No se han encontrado coincidencias</h2>`;
     // }
   }
 };
 
-formulario.addEventListener("keyup", buscar);
+formulario.addEventListener("input", buscar, removeCards);
 
 // --- cards direccion (col - row) ---
 
@@ -875,12 +901,16 @@ const cardColumn = () => {
   cardId.classList.add("card");
 };
 
-btnCol.addEventListener("click", () => {
-  // primero eliminamos todas las cards con class .card-row
+// primero eliminamos todas las cards con class .card-row
+const removeCardsRow = () => {
   let cards = document.querySelectorAll(".card-row");
   for (let i = 0; i < cards.length; i++) {
     document.querySelector(".card-row").remove();
   }
+};
+
+btnCol.addEventListener("click", () => {
+  removeCardsRow();
   cardColumn();
   showProduct(newArray);
   btnActive();
