@@ -1,0 +1,53 @@
+.form-label {
+  color: $color-2;
+}
+
+.form-control,
+.form-select {
+  background-color: $color-4;
+  border-color: $color-3;
+  color: $color-2;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: $color-4;
+    color: $color-2;
+    border-color: $color-4;
+    box-shadow: 0px 0px 8px $color-3;
+  }
+}
+
+.form-check-input {
+  background-color: $color-2;
+
+  &:checked {
+    background-color: $color-3;
+    border: none;
+    outline: none;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 8px $color-3;
+  }
+}
+
+.form-check-label {
+  color: $color-2;
+}
+
+.ultimo {
+  &-paso {
+    margin-top: 1rem;
+    padding: 0.4rem;
+    background-color: $color-3;
+    border-radius: 0.4rem;
+    box-shadow: 0px 0px 8px $color-3;
+  }
+  &-title {
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+    color: $color-1;
+  }
+}
