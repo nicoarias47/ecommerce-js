@@ -297,6 +297,8 @@ header {
   border-radius: 0.4rem;
   padding: 1rem;
   box-shadow: 3px 5px 4px #232734;
+  height: 100%;
+  margin-bottom: 2rem;
 }
 .componentes-title {
   padding-bottom: 2rem;
@@ -359,6 +361,11 @@ header {
 }
 .btn-primary:hover {
   background-color: #232734;
+}
+.btn-primary:focus {
+  background-color: #03cc90;
+  box-shadow: none;
+  outline: none;
 }
 
 .barra-pasos {

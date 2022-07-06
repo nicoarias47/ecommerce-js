@@ -637,6 +637,21 @@ const setCarrito = (objeto) => {
 
   compraItems[producto.id] = { ...producto };
   pintarSegundoCarrito();
+  // Toastyfy
+  if (producto.price > 0) {
+    Toastify({
+      text: `añadiste al carrito: ${producto.name}
+    Cantidad: ${producto.amount}`,
+      duration: 2500,
+      gravity: "bottom",
+      position: "left",
+      className: "toasty",
+      style: {
+        background: "#03cc90",
+        color: "#ffffff",
+      },
+    }).showToast();
+  }
 };
 
 // --- PINTAR SEGUNDO CARRITO --- (de productos individuales)
@@ -797,21 +812,40 @@ const segundaCompraGet = () => {
 
 // --- Eliminar productos del carrito ---
 
+const deleteAllBtn = document.querySelector("#delete-all");
 const deleteAll = () => {
-  const deleteAll = document.querySelector("#delete-all");
+  compraItems = {};
+  compra = {};
+  localStorage.clear();
 
-  deleteAll.addEventListener("click", () => {
-    compraItems = {};
-    compra = {};
-    localStorage.clear();
+  pintarSegundoCarrito();
 
-    pintarSegundoCarrito();
+  pintarCarrito();
 
-    pintarCarrito();
-
-    location.reload();
-  });
+  location.reload();
 };
+
+// --- SWEET ALERT: delete all---
+
+deleteAllBtn.addEventListener("click", () => {
+  Swal.fire({
+    title: "¿Esta seguro de vaciar el carrito?",
+    text: "¡No podrás revertir esto!",
+    imageUrl: "../img/conejo.png",
+    imageWidth: 250,
+    imageHeight: 250,
+    imageAlt: "Conejo enojado",
+    showCancelButton: true,
+    confirmButtonColor: "#03cc90",
+    cancelButtonColor: "#232734",
+    confirmButtonText: "Si, Vaciar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      deleteAll();
+    }
+  });
+});
 
 list.addEventListener("click", (e) => {
   deleteItem(e);
@@ -954,4 +988,3 @@ filtroFuente();
 filtroGabinete();
 mayorPrecio();
 menorPrecio();
-deleteAll();

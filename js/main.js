@@ -538,6 +538,21 @@ const setCarrito = (objeto) => {
 
   compra[producto.id] = { ...producto };
   pintarCarrito();
+  // Toastyfy
+  if (producto.price > 0) {
+    Toastify({
+      text: `añadiste a tu PC: ${producto.name}
+              Cantidad: ${producto.amount}`,
+      duration: 2500,
+      gravity: "bottom",
+      position: "left",
+      className: "toasty",
+      style: {
+        background: "#03cc90",
+        color: "#ffffff",
+      },
+    }).showToast();
+  }
 };
 
 // ---- PASOS ----
@@ -904,23 +919,43 @@ const segundaCompraStorage = () => {
   localStorage.setItem("productos", JSON.stringify(compraItems));
 };
 
+const deleteAllBtn = document.querySelector("#delete-all");
+
 // --- Eliminar productos del carrito ---
 const deleteAll = () => {
-  const deleteAll = document.querySelector("#delete-all");
+  compraItems = {};
+  compra = {};
+  localStorage.clear();
+  i = 0;
+  stop = 0;
+  pintarSegundoCarrito();
 
-  deleteAll.addEventListener("click", () => {
-    compraItems = {};
-    compra = {};
-    localStorage.clear();
-    i = 0;
-    stop = 0;
-    pintarSegundoCarrito();
+  pintarCarrito();
 
-    pintarCarrito();
-
-    location.reload();
-  });
+  location.reload();
 };
+
+// --- SWEET ALERT: delete all---
+
+deleteAllBtn.addEventListener("click", () => {
+  Swal.fire({
+    title: "¿Esta seguro de vaciar el carrito?",
+    text: "¡No podrás revertir esto!",
+    imageUrl: "../img/conejo.png",
+    imageWidth: 250,
+    imageHeight: 250,
+    imageAlt: "Conejo enojado",
+    showCancelButton: true,
+    confirmButtonColor: "#03cc90",
+    cancelButtonColor: "#232734",
+    confirmButtonText: "Si, Vaciar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      deleteAll();
+    }
+  });
+});
 
 list.addEventListener("click", (e) => {
   deleteItem(e);
@@ -945,8 +980,6 @@ const deleteItem = (e) => {
 
   e.stopPropagation();
 };
-
-deleteAll();
 
 // --- BARRA INDICADORA DE PASOS ---
 
@@ -986,28 +1019,3 @@ const pasosBarra = () => {
       break;
   }
 };
-
-// ejemplo de desestructuracion
-
-const microprocesadores = {
-  precio: 15000,
-  distribuidores: {
-    intel: {
-      tel: 11195423,
-      pais: "BsAs",
-    },
-    amd: {
-      tel: 297482165,
-      pais: "Cuba",
-    },
-  },
-};
-
-const {
-  distribuidores: {
-    amd: { tel, pais },
-  },
-} = microprocesadores;
-
-console.log(tel);
-console.log(pais);
