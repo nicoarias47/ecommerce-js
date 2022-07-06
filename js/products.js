@@ -976,6 +976,29 @@ const btnActive = () => {
   }
 };
 
+// --- BTN: FINALIZAR COMPRA ---
+
+const finish = document.querySelector("#finish-buy");
+
+finish.addEventListener("click", () => {
+  Swal.fire({
+    title: "¿Seguro que no quieres algo mas?",
+    imageUrl: "../img/conejo-fin.jpg",
+    imageWidth: 250,
+    imageHeight: 250,
+    imageAlt: "Conejo",
+    showCancelButton: true,
+    confirmButtonColor: "#03cc90",
+    cancelButtonColor: "#232734",
+    confirmButtonText: "Finalizar compra",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "../pages/compra.html";
+    }
+  });
+});
+
 btnActive();
 filtroTodos();
 filtroMicro();
