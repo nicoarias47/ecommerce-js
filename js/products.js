@@ -440,14 +440,7 @@ const segundaCompraGet = () => {
 
 const deleteAllBtn = document.querySelector("#delete-all");
 const deleteAll = () => {
-  compraItems = {};
-  compra = {};
   localStorage.clear();
-
-  pintarSegundoCarrito();
-
-  pintarCarrito();
-
   location.reload();
 };
 
@@ -607,23 +600,39 @@ const btnActive = () => {
 const finish = document.querySelector("#finish-buy");
 
 finish.addEventListener("click", () => {
-  Swal.fire({
-    title: "¿seguro que no deseas algo mas?",
-    imageUrl: "../img/conejo-fin.jpg",
-    imageWidth: 250,
-    imageHeight: 250,
-    imageAlt: "Conejo",
-    showCancelButton: true,
-    confirmButtonColor: "#03cc90",
-    cancelButtonColor: "#232734",
-    confirmButtonText: "Finalizar compra",
-    cancelButtonText: "Cancelar",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      window.location.href = "../pages/compra.html";
-    }
-  });
+  if (
+    !localStorage.getItem("costos pc") &&
+    !localStorage.getItem("costosItems")
+  ) {
+    Swal.fire({
+      text: "No has agregado productos a tu carro de compras",
+      confirmButtonColor: "#03cc90",
+      confirmButtonText: "Continuar",
+    });
+  }
+  if (
+    localStorage.getItem("costos pc") ||
+    localStorage.getItem("costosItems")
+  ) {
+    Swal.fire({
+      title: "¿Seguro que no quieres algo mas?",
+      imageUrl: "../img/conejo-fin.jpg",
+      imageWidth: 250,
+      imageHeight: 250,
+      imageAlt: "Conejo",
+      showCancelButton: true,
+      confirmButtonColor: "#03cc90",
+      cancelButtonColor: "#232734",
+      confirmButtonText: "Finalizar compra",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = "../pages/compra.html";
+      }
+    });
+  }
 });
+
 segundaCompraGet();
 compraGet();
 costosArmarPcStorageGet();
