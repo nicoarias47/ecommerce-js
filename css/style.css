@@ -452,6 +452,12 @@ header {
   color: #353849;
 }
 
+.sweet-fechas {
+  display: inline-block;
+  color: #232734;
+  font-size: 1.2rem;
+}
+
 .cartoon {
   position: static;
   transform: translate(-25%, 0%);
