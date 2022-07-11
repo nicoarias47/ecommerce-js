@@ -153,6 +153,7 @@ const pintarCarrito = () => {
 // --- LOCAL STORAGE ---
 const compraStorage = () => {
   localStorage.setItem("compra", JSON.stringify(compra));
+  contar();
 };
 
 const compraGet = () => {
@@ -418,6 +419,7 @@ const segundaCompraGet = () => {
   if (localStorage.getItem("productos")) {
     compraItems = JSON.parse(localStorage.getItem("productos"));
     pintarSegundoCarrito();
+    contar();
   }
 };
 
@@ -504,7 +506,7 @@ const deleteItem = (e) => {
     segundaCompraStorage();
     pintarCostos();
   }
-
+  contar();
   e.stopPropagation();
 };
 
@@ -584,3 +586,21 @@ finish.addEventListener("click", () => {
     });
   }
 });
+
+// --- pintar links: filtros ---
+export const contador = document.querySelector("#contador");
+
+export const contar = () => {
+  let cuenta = 0;
+
+  for (let i in compraItems) {
+    cuenta += compraItems[i].amount;
+  }
+  for (let i in compra) {
+    cuenta += compra[i].amount;
+  }
+
+  contador.textContent = cuenta;
+};
+
+contar();

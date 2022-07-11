@@ -51,6 +51,15 @@ body {
   }
 }
 
+.btn-close {
+  background: none;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
 .btn-carrito {
   margin-top: 2rem;
   background-color: $color-1;
@@ -119,4 +128,19 @@ body {
   i:hover {
     color: $color-1;
   }
+}
+
+.contador {
+  position: fixed;
+  bottom: 28px;
+  right: 63px;
+  border-radius: 100%;
+  background-color: $color-2;
+  color: $white;
+  font-size: 0.8rem;
+  padding: 0.2rem;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  z-index: 1000;
 }

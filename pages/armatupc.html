@@ -76,87 +76,88 @@
         </div>
       </nav>
     </header>
-    <main>
-      <!-- floating btn -->
-      <section>
-        <!-- Offcanvas Sidebar -->
-        <div class="offcanvas offcanvas-end" id="demo">
-          <div class="offcanvas-header">
-            <h1 class="offcanvas-title">Carrito</h1>
-            <button
-              type="button"
-              class="btn-close text-reset"
-              data-bs-dismiss="offcanvas"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-          <div class="offcanvas-body">
-            <h2 class="carrito-title">Productos</h2>
-            <table class="carrito-tabla">
-              <thead>
-                <tr>
-                  <th>PRODUCTO</th>
-                  <th>CANT</th>
-                  <th>PRECIO</th>
-                </tr>
-              </thead>
-              <tbody id="list-items"></tbody>
-            </table>
-            <tbody id="list-product"></tbody>
-            <h2 class="carrito-title">PC Armada</h2>
-            <table class="carrito-tabla">
-              <thead>
-                <tr>
-                  <th>PRODUCTO</th>
-                  <th>CANT</th>
-                  <th>PRECIO</th>
-                </tr>
-              </thead>
-              <tbody id="list-product"></tbody>
-            </table>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">Sub Total:</span>
-              </div>
-              <div class="col carrito-subTotal"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">Envio:</span>
-              </div>
-              <div class="col carrito-envio"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">IVA 21%:</span>
-              </div>
-              <div class="col carrito-iva"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">TOTAL:</span>
-              </div>
-              <div class="col carrito-total"></div>
-            </div>
-            <button class="btn btn-carrito" type="button" id="finish-buy">
-              Finalizar Compra
-            </button>
-            <button class="btn btn-carrito" type="button" id="delete-all">
-              Vaciar Carrito
-            </button>
-          </div>
+    <!-- floating btn -->
+    <section>
+      <!-- Offcanvas Sidebar -->
+      <div class="offcanvas offcanvas-end" id="demo">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Carrito</h1>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
-        <!-- Button to open the offcanvas sidebar -->
-        <button
-          class="btn-shopping"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#demo"
-        >
-          <i class="fa-solid fa-basket-shopping"></i>
-        </button>
-      </section>
+        <div class="offcanvas-body">
+          <h2 class="carrito-title">Productos</h2>
+          <table class="carrito-tabla">
+            <thead>
+              <tr>
+                <th>PRODUCTO</th>
+                <th>CANT</th>
+                <th>PRECIO</th>
+              </tr>
+            </thead>
+            <tbody id="list-items"></tbody>
+          </table>
+          <tbody id="list-product"></tbody>
+          <h2 class="carrito-title">PC Armada</h2>
+          <table class="carrito-tabla">
+            <thead>
+              <tr>
+                <th>PRODUCTO</th>
+                <th>CANT</th>
+                <th>PRECIO</th>
+              </tr>
+            </thead>
+            <tbody id="list-product"></tbody>
+          </table>
+          <div class="row">
+            <div class="col">
+              <span class="carrito-items">Sub Total:</span>
+            </div>
+            <div class="col carrito-subTotal"></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="carrito-items">Envio:</span>
+            </div>
+            <div class="col carrito-envio"></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="carrito-items">IVA 21%:</span>
+            </div>
+            <div class="col carrito-iva"></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <span class="carrito-items">TOTAL:</span>
+            </div>
+            <div class="col carrito-total"></div>
+          </div>
+          <button class="btn btn-carrito" type="button" id="finish-buy">
+            Finalizar Compra
+          </button>
+          <button class="btn btn-carrito" type="button" id="delete-all">
+            Vaciar Carrito
+          </button>
+        </div>
+      </div>
+      <!-- Button to open the offcanvas sidebar -->
+      <span class="contador" id="contador"></span>
+      <button
+        class="btn-shopping"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#demo"
+      >
+        <i class="fa-solid fa-basket-shopping"></i>
+      </button>
+    </section>
+    <main>
       <section class="hero-armaTuPc">
         <div class="container-lg">
           <div class="row">

@@ -42,8 +42,6 @@ const compraGet = () => {
   }
 };
 
-console.log(compra);
-
 // --- PINTAR CARRITO ---
 
 // - Templates carrito -
@@ -354,12 +352,14 @@ const setCostosItems = () => {
   costosItems.subTotal = subTotalPc;
   costosItems.iva = ivaPc;
   costosItems.envio = envioPc;
+  contar();
 };
 
 // -- storage de costos por items --
 const costosItemStorage = () => {
   localStorage.setItem("costosItems", JSON.stringify(costosItems));
   costosItemGet();
+  contar();
 };
 
 const costosItemGet = () => {
@@ -374,6 +374,7 @@ const costosArmarPcStorageGet = () => {
   if (localStorage.getItem("costos pc")) {
     costosPc = JSON.parse(localStorage.getItem("costos pc"));
     pintarCostos();
+    contar();
   }
 };
 
@@ -483,7 +484,7 @@ const deleteItem = (e) => {
     segundaCompraStorage();
     pintarSegundoCarrito();
   }
-
+  contar();
   e.stopPropagation();
 };
 
@@ -633,6 +634,23 @@ finish.addEventListener("click", () => {
   }
 });
 
+// --- pintar links: filtros ---
+export const contador = document.querySelector("#contador");
+
+export const contar = () => {
+  let cuenta = 0;
+
+  for (let i in compraItems) {
+    cuenta += compraItems[i].amount;
+  }
+  for (let i in compra) {
+    cuenta += compra[i].amount;
+  }
+
+  contador.textContent = cuenta;
+};
+
+contar();
 segundaCompraGet();
 compraGet();
 costosArmarPcStorageGet();
