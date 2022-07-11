@@ -68,3 +68,14 @@
 .swal2-popup {
   background-color: $background-1;
 }
+
+.btn-clear {
+  color: $white;
+  border-radius: 0px;
+  background-color: $color-2;
+
+  &:hover {
+    color: $white;
+    background-color: $color-2-ho;
+  }
+}

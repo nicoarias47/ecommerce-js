@@ -587,10 +587,10 @@ finish.addEventListener("click", () => {
   }
 });
 
-// --- pintar links: filtros ---
-export const contador = document.querySelector("#contador");
+// --- pintar contador en carrito ---
 
 export const contar = () => {
+  const contador = document.querySelector("#contador");
   let cuenta = 0;
 
   for (let i in compraItems) {

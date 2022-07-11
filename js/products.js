@@ -634,10 +634,10 @@ finish.addEventListener("click", () => {
   }
 });
 
-// --- pintar links: filtros ---
-export const contador = document.querySelector("#contador");
+// --- pintar contador en carrito ---
 
 export const contar = () => {
+  const contador = document.querySelector("#contador");
   let cuenta = 0;
 
   for (let i in compraItems) {
@@ -648,6 +648,67 @@ export const contar = () => {
   }
 
   contador.textContent = cuenta;
+};
+
+// --- pintar links: filtros ---
+const panelFiltros = document.querySelector("#filtros");
+
+panelFiltros.addEventListener("click", (e) => {
+  print(e);
+});
+
+const print = (e) => {
+  if (e.target.classList.contains("productos-link")) {
+    const text = e.target;
+    const target = e.target.dataset.id;
+    // eliminamos el color del filtro por precio
+    const removePrice = () => {
+      document.querySelector("#mayorPrecio").style.color = "#252525";
+      document.querySelector("#menorPrecio").style.color = "#252525";
+    };
+    //eliminamos el color de todos los filtros
+    const all = document.querySelectorAll(".productos-link");
+    const removeAll = () => {
+      all.forEach((el) => {
+        el.style.color = "#252525";
+      });
+    };
+    // eliminamos el color de los filtros por productos
+    const products = document.querySelectorAll(".filters");
+    const removeProducts = () => {
+      products.forEach((el) => {
+        el.style.color = "#252525";
+      });
+    };
+
+    switch (target) {
+      case "1":
+        removePrice();
+        text.style.color = "#ffb320";
+        break;
+      case "2":
+        removePrice();
+        text.style.color = "#ffb320";
+        break;
+      case "3":
+        removeAll();
+        text.style.color = "#ffb320";
+        break;
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+      case "10":
+      case "11":
+        removeProducts();
+        text.style.color = "#ffb320";
+        break;
+    }
+  }
+
+  e.stopPropagation();
 };
 
 contar();

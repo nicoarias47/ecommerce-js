@@ -140,7 +140,7 @@
           <button class="btn btn-carrito" type="button" id="finish-buy">
             Finalizar Compra
           </button>
-          <button class="btn btn-carrito" type="button" id="delete-all">
+          <button class="btn btn-carrito-clear" type="button" id="delete-all">
             Vaciar Carrito
           </button>
         </div>
@@ -188,32 +188,67 @@
                     </div>
                   </div>
                 </div>
-                <div class="productos-lista d-flex flex-column">
+                <div class="productos-lista d-flex flex-column" id="filtros">
                   <h1 class="productos-title">Ordenar productos</h1>
-                  <span class="productos-link" id="mayorPrecio"
+                  <span class="productos-link" id="mayorPrecio" data-id="1"
                     >Mayor precio</span
                   >
-                  <span class="productos-link" id="menorPrecio"
+                  <span class="productos-link" id="menorPrecio" data-id="2"
                     >Menor precio</span
                   >
                   <h2 class="productos-title">Categorias</h2>
-                  <span class="productos-link" id="filtro-todos">Todos</span>
-                  <span class="productos-link" id="filtro-micro"
+                  <span
+                    class="productos-link filters"
+                    id="filtro-todos"
+                    data-id="3"
+                    >Todos</span
+                  >
+                  <span
+                    class="productos-link filters"
+                    id="filtro-micro"
+                    data-id="4"
                     >Microprocesador</span
                   >
-                  <span class="productos-link" id="filtro-cooler">Cooler</span>
-                  <span class="productos-link" id="filtro-mother"
+                  <span
+                    class="productos-link filters"
+                    id="filtro-cooler"
+                    data-id="5"
+                    >Cooler</span
+                  >
+                  <span
+                    class="productos-link filters"
+                    id="filtro-mother"
+                    data-id="6"
                     >Motherboard</span
                   >
-                  <span class="productos-link" id="filtro-ram"
+                  <span
+                    class="productos-link filters"
+                    id="filtro-ram"
+                    data-id="7"
                     >Memoria RAM</span
                   >
-                  <span class="productos-link" id="filtro-video"
+                  <span
+                    class="productos-link filters"
+                    id="filtro-video"
+                    data-id="8"
                     >Placa de Video</span
                   >
-                  <span class="productos-link" id="filtro-disco">Disco</span>
-                  <span class="productos-link" id="filtro-fuente">Fuente</span>
-                  <span class="productos-link" id="filtro-gabinete"
+                  <span
+                    class="productos-link filters"
+                    id="filtro-disco"
+                    data-id="9"
+                    >Disco</span
+                  >
+                  <span
+                    class="productos-link filters"
+                    id="filtro-fuente"
+                    data-id="10"
+                    >Fuente</span
+                  >
+                  <span
+                    class="productos-link filters"
+                    id="filtro-gabinete"
+                    data-id="11"
                     >Gabinete</span
                   >
                 </div>

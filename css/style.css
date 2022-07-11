@@ -66,6 +66,16 @@ body {
 .btn-carrito:focus {
   box-shadow: 0px 1px 10px #ffb320;
 }
+.btn-carrito-clear {
+  margin-top: 2rem;
+  color: #fff;
+  border-radius: 0px;
+  background-color: #ff205f;
+}
+.btn-carrito-clear:hover {
+  color: #fff;
+  background-color: #f95785;
+}
 
 .btn-shopping {
   position: fixed;
@@ -491,6 +501,16 @@ header {
 
 .swal2-popup {
   background-color: #131313;
+}
+
+.btn-clear {
+  color: #fff;
+  border-radius: 0px;
+  background-color: #ff205f;
+}
+.btn-clear:hover {
+  color: #fff;
+  background-color: #f95785;
 }
 
 @media (max-width: 992px) {
