@@ -455,8 +455,8 @@ deleteAllBtn.addEventListener("click", () => {
     imageHeight: 250,
     imageAlt: "Conejo enojado",
     showCancelButton: true,
-    confirmButtonColor: "#03cc90",
-    cancelButtonColor: "#232734",
+    confirmButtonColor: "#ffb320",
+    cancelButtonColor: "#ff205f",
     confirmButtonText: "Si, Vaciar",
     cancelButtonText: "Cancelar",
   }).then((result) => {
@@ -580,22 +580,22 @@ btnRow.addEventListener("click", () => {
 const btnActive = () => {
   if (cardId.classList.contains("card")) {
     btnCol.classList.add("btn-background");
-    document.querySelector("#btn-col-icon").style.color = "#03cc90";
+    document.querySelector("#btn-col-icon").style.color = "#ffb320";
   } else {
     btnCol.classList.remove("btn-background");
-    document.querySelector("#btn-col-icon").style.color = "#353849";
+    document.querySelector("#btn-col-icon").style.color = "#d6dee7";
   }
 
   if (cardId.classList.contains("card-row")) {
     btnRow.classList.add("btn-background");
-    document.querySelector("#btn-row-icon").style.color = "#03cc90";
+    document.querySelector("#btn-row-icon").style.color = "#ffb320";
   } else {
     btnRow.classList.remove("btn-background");
-    document.querySelector("#btn-row-icon").style.color = "#353849";
+    document.querySelector("#btn-row-icon").style.color = "#d6dee7";
   }
 };
 
-// --- BTN: FINALIZAR COMPRA ---
+// --- BTN: FINALIZAR COMPRA (sweet alert)---
 
 const finish = document.querySelector("#finish-buy");
 
@@ -621,8 +621,8 @@ finish.addEventListener("click", () => {
       imageHeight: 250,
       imageAlt: "Conejo",
       showCancelButton: true,
-      confirmButtonColor: "#03cc90",
-      cancelButtonColor: "#232734",
+      confirmButtonColor: "#ffb320",
+      cancelButtonColor: "#ff205f",
       confirmButtonText: "Finalizar compra",
       cancelButtonText: "Cancelar",
     }).then((result) => {

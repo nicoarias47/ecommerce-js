@@ -24,7 +24,7 @@ form.addEventListener("submit", (e) => {
     imageHeight: 200,
     imageAlt: "Gracias",
     confirmButtonText: "Continuar",
-    confirmButtonColor: "#03cc90",
+    confirmButtonColor: "#ffb320",
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href = "../index.html";

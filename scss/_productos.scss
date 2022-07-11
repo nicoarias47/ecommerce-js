@@ -4,26 +4,27 @@
   padding-bottom: 1.5rem;
 }
 
-.hero-productos {
-  margin-bottom: 2rem;
+.hero-products {
+  padding-bottom: 2rem;
+  background-color: $background-2;
 }
 
 .productos {
-  background-color: $color-2;
+  background-color: $white;
   border-radius: 0.4rem;
   padding: 1rem;
 
   &-title {
     font-size: 1.2rem;
     font-weight: 500;
-    color: $color-3;
+    color: $color-1;
     padding: 0.5rem 0;
   }
 
   &-link {
     font-size: 1rem;
     padding-left: 2rem;
-    color: $color-1;
+    color: $black;
     padding-bottom: 0.5rem;
     cursor: pointer;
   }
@@ -34,41 +35,33 @@
   padding: 0 7px;
   margin-left: 1rem;
   border: none;
-  background-color: $color-2;
+  background-color: $white;
 
   i {
-    color: $color-1;
+    font: red;
   }
-}
-
-.btn-background {
-  background-color: $color-2;
-  //padding: 0 7px;
-  border-radius: 0.4rem;
-  box-shadow: -1px 1px 6px $color-3;
 }
 
 #buscador {
   width: 280px;
-
   height: 26px;
   border-radius: 0.4rem;
   font-size: 0.8rem;
   padding-left: 0.4rem;
-  color: $color-4;
+  color: $black;
   font-weight: 500;
-  border: 2px solid $color-3;
+  border: 1px solid $black;
   margin-bottom: 1rem;
 
   &:focus {
-    box-shadow: none;
+    box-shadow: -1px 1px 3px rgb(179, 176, 176);
     outline: none;
   }
 }
 
 .title-buscador {
   display: inline-block;
-  color: $color-3;
+  color: $color-1;
   font-size: 1rem;
   font-weight: 500;
 }

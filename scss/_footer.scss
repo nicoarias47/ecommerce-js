@@ -1,6 +1,6 @@
 .footer {
-  background-color: $color-4;
-  border-top: 2px solid $color-4;
+  background-color: $background-1;
+  border-top: 2px solid $grey;
 }
 .row__footer {
   display: flex;
@@ -13,13 +13,13 @@
   padding: 0.7rem;
 }
 .footer__title {
-  color: $color-3;
+  color: $white;
   font-size: 1.1rem;
   font-weight: 500;
 }
 
 .footer__text {
-  color: whitesmoke;
+  color: $grey;
   font-size: 0.9rem;
   font-weight: 400;
   padding-top: 0.3rem;
@@ -27,9 +27,9 @@
 
 .copyright {
   text-align: center;
-  color: $color-3;
+  color: $color-1;
   padding: 1rem;
-  border-top: 1px solid $color-4;
+  border-top: 1px solid $grey;
 }
 
 .svg-redes svg {

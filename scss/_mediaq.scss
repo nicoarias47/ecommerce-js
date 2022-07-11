@@ -9,7 +9,7 @@
   }
 
   .card {
-    width: 11rem;
+    width: 12rem;
   }
   .card-img-top {
     width: 180px;
@@ -53,5 +53,20 @@
   }
   #buscador {
     width: 100%;
+  }
+}
+
+@media (min-width: 993px) {
+  #items {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #buscador {
+    width: 100%;
+  }
+
+  .card-img-top {
+    max-width: 220px;
   }
 }

@@ -473,8 +473,8 @@ deleteAllBtn.addEventListener("click", () => {
     imageHeight: 250,
     imageAlt: "Conejo enojado",
     showCancelButton: true,
-    confirmButtonColor: "#03cc90",
-    cancelButtonColor: "#232734",
+    confirmButtonColor: "#ffb320",
+    cancelButtonColor: "#ff205f",
     confirmButtonText: "Si, Vaciar",
     cancelButtonText: "Cancelar",
   }).then((result) => {
@@ -547,7 +547,7 @@ const pasosBarra = () => {
   }
 };
 
-// --- BTN: FINALIZAR COMPRA ---
+// --- BTN: FINALIZAR COMPRA (sweet alert)---
 
 const finish = document.querySelector("#finish-buy");
 
@@ -573,8 +573,8 @@ finish.addEventListener("click", () => {
       imageHeight: 250,
       imageAlt: "Conejo",
       showCancelButton: true,
-      confirmButtonColor: "#03cc90",
-      cancelButtonColor: "#232734",
+      confirmButtonColor: "#ffb320",
+      cancelButtonColor: "#ff205f",
       confirmButtonText: "Finalizar compra",
       cancelButtonText: "Cancelar",
     }).then((result) => {
