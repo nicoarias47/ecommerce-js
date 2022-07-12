@@ -82,7 +82,7 @@ const setCarrito = (objeto) => {
       position: "left",
       className: "toasty",
       style: {
-        background: "#03cc90",
+        backgroundImage: "url(../img/pattern.png)",
         color: "#ffffff",
       },
     }).showToast();
@@ -470,6 +470,7 @@ deleteAllBtn.addEventListener("click", () => {
   Swal.fire({
     title: "¿Esta seguro de vaciar el carrito?",
     text: "¡No podrás revertir esto!",
+    color: "#fff",
     imageUrl: "../img/conejo.png",
     imageWidth: 250,
     imageHeight: 250,
@@ -479,6 +480,7 @@ deleteAllBtn.addEventListener("click", () => {
     cancelButtonColor: "#ff205f",
     confirmButtonText: "Si, Vaciar",
     cancelButtonText: "Cancelar",
+    background: "linear-gradient(to top, #536976, #292e49)",
   }).then((result) => {
     if (result.isConfirmed) {
       deleteAll();
@@ -545,6 +547,63 @@ const pasosBarra = () => {
       break;
     case 9:
       pasosBar.textContent = "Felicitaciones, la PC ya casi es tuya!";
+      cards.innerHTML = ` <div class="ultimoPaso">
+        <h2 class="ultimoPaso-title">
+          Sabemos que eres un poco ansioso, pero antes de finalizar tu
+          compra, ¿te gustaria comprar algo mas ?
+        </h2>
+        <img
+          src="../img/conejo.jpg"
+          alt=""
+          class="ultimoPaso-img mx-auto"
+        />
+        <button class="ultimoPaso-btn" id="seguir-comprando">
+          Seguir comprando
+        </button>
+        <button class="ultimoPaso-btn btn-finalizar" id="fin" data-bs-toggle="offcanvas"
+        data-bs-target="#demo">
+          Finalizar compra
+        </button>
+        <button class="ultimoPaso-btn btn-reiniciar" id="reiniciar">
+          Reiniciar
+        </button>
+      </div> `;
+
+      // --- BTNS: ULTIMO PASO ---
+      const seguir = document.querySelector("#seguir-comprando");
+      const reiniciar = document.querySelector("#reiniciar");
+
+      seguir.addEventListener("click", () => {
+        window.location.href = "./productos.html";
+      });
+
+      reiniciar.addEventListener("click", () => {
+        localStorage.removeItem("stop");
+        localStorage.removeItem("compra");
+        localStorage.removeItem("pasos");
+        localStorage.removeItem("costos pc");
+        localStorage.removeItem("imgMicro");
+        localStorage.removeItem("imgMicro");
+        localStorage.removeItem("nameMicro");
+        localStorage.removeItem("nameMicro");
+        localStorage.removeItem("imgCooler");
+        localStorage.removeItem("nameCooler");
+        localStorage.removeItem("imgMother");
+        localStorage.removeItem("nameMother");
+        localStorage.removeItem("imgRam1");
+        localStorage.removeItem("nameRam1");
+        localStorage.removeItem("imgRam2");
+        localStorage.removeItem("nameRam2");
+        localStorage.removeItem("imgVideo");
+        localStorage.removeItem("nameVideo");
+        localStorage.removeItem("imgDisco");
+        localStorage.removeItem("nameDisco");
+        localStorage.removeItem("imgFuente");
+        localStorage.removeItem("nameFuente");
+        localStorage.removeItem("imgGabinete");
+        localStorage.removeItem("nameGabinete");
+        location.reload();
+      });
       break;
   }
 };
@@ -560,30 +619,17 @@ finish.addEventListener("click", () => {
   ) {
     Swal.fire({
       text: "No has agregado productos a tu carro de compras",
-      confirmButtonColor: "#03cc90",
+      confirmButtonColor: "#ffb320",
+      color: "#fff",
       confirmButtonText: "Continuar",
+      background: "linear-gradient(to top, #536976, #292e49)",
     });
   }
   if (
     localStorage.getItem("costos pc") ||
     localStorage.getItem("costosItems")
   ) {
-    Swal.fire({
-      title: "¿Seguro que no quieres algo mas?",
-      imageUrl: "../img/conejo-fin.jpg",
-      imageWidth: 250,
-      imageHeight: 250,
-      imageAlt: "Conejo",
-      showCancelButton: true,
-      confirmButtonColor: "#ffb320",
-      cancelButtonColor: "#ff205f",
-      confirmButtonText: "Finalizar compra",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = "../pages/compra.html";
-      }
-    });
+    window.location.href = "../pages/compra.html";
   }
 });
 

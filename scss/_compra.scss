@@ -1,6 +1,5 @@
 .hero-compra {
-  background-image: url("../img/pattern.png");
-  background-repeat: repeat;
+  background: linear-gradient(to top, #536976, #292e49);
 }
 
 .form-label {
@@ -9,15 +8,15 @@
 
 .form-control,
 .form-select {
-  background-color: $background-1;
+  background-color: $background-2;
   border-color: $color-1;
-  color: $grey;
+  color: $black;
 
   &:focus {
     box-shadow: none;
     outline: none;
-    background-color: $background-1;
-    color: $white;
+    background-color: $background-2;
+    color: $black;
     border-color: $color-1;
     box-shadow: 0px 2px 8px $color-1;
   }
@@ -63,10 +62,6 @@
   display: inline-block;
   color: $white;
   font-size: 1.2rem;
-}
-
-.swal2-popup {
-  background-color: $background-1;
 }
 
 .btn-clear {

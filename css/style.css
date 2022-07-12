@@ -436,9 +436,42 @@ header {
   border: none;
 }
 
+.ultimoPaso {
+  background-color: #fff;
+  padding: 2rem;
+  border: 2px solid #d6dee7;
+}
+.ultimoPaso:hover {
+  box-shadow: 0px 4px 8px rgb(179, 176, 176);
+}
+.ultimoPaso-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+.ultimoPaso-img {
+  display: block;
+  padding-bottom: 2rem;
+}
+.ultimoPaso-btn {
+  border: none;
+  background-color: #ffb320;
+  padding: 0.4rem 0.6rem;
+  color: #fff;
+}
+.ultimoPaso-btn:hover {
+  background-color: #f7c96d;
+}
+
+.btn-reiniciar {
+  background-color: #ff205f;
+}
+.btn-reiniciar:hover {
+  background-color: #f95785;
+}
+
 .hero-compra {
-  background-image: url("../img/pattern.png");
-  background-repeat: repeat;
+  background: linear-gradient(to top, #536976, #292e49);
 }
 
 .form-label {
@@ -447,16 +480,16 @@ header {
 
 .form-control,
 .form-select {
-  background-color: #131313;
+  background-color: #eef2f6;
   border-color: #ffb320;
-  color: #d6dee7;
+  color: #252525;
 }
 .form-control:focus,
 .form-select:focus {
   box-shadow: none;
   outline: none;
-  background-color: #131313;
-  color: #fff;
+  background-color: #eef2f6;
+  color: #252525;
   border-color: #ffb320;
   box-shadow: 0px 2px 8px #ffb320;
 }
@@ -497,10 +530,6 @@ header {
   display: inline-block;
   color: #fff;
   font-size: 1.2rem;
-}
-
-.swal2-popup {
-  background-color: #131313;
 }
 
 .btn-clear {

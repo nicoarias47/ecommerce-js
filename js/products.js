@@ -264,14 +264,14 @@ const setCarrito = (objeto) => {
   // Toastyfy
   if (producto.price > 0) {
     Toastify({
-      text: `añadiste al carrito: ${producto.name}
+      text: `Añadiste: ${producto.name}
     Cantidad: ${producto.amount}`,
       duration: 2500,
       gravity: "bottom",
       position: "left",
       className: "toasty",
       style: {
-        background: "#03cc90",
+        backgroundImage: "url(../img/pattern.png)",
         color: "#ffffff",
       },
     }).showToast();
@@ -451,6 +451,7 @@ deleteAllBtn.addEventListener("click", () => {
   Swal.fire({
     title: "¿Esta seguro de vaciar el carrito?",
     text: "¡No podrás revertir esto!",
+    color: "#fff",
     imageUrl: "../img/conejo.png",
     imageWidth: 250,
     imageHeight: 250,
@@ -460,6 +461,7 @@ deleteAllBtn.addEventListener("click", () => {
     cancelButtonColor: "#ff205f",
     confirmButtonText: "Si, Vaciar",
     cancelButtonText: "Cancelar",
+    background: "linear-gradient(to top, #536976, #292e49)",
   }).then((result) => {
     if (result.isConfirmed) {
       deleteAll();
@@ -607,30 +609,17 @@ finish.addEventListener("click", () => {
   ) {
     Swal.fire({
       text: "No has agregado productos a tu carro de compras",
-      confirmButtonColor: "#03cc90",
+      confirmButtonColor: "#ffb320",
+      color: "#fff",
       confirmButtonText: "Continuar",
+      background: "linear-gradient(to top, #536976, #292e49)",
     });
   }
   if (
     localStorage.getItem("costos pc") ||
     localStorage.getItem("costosItems")
   ) {
-    Swal.fire({
-      title: "¿Seguro que no quieres algo mas?",
-      imageUrl: "../img/conejo-fin.jpg",
-      imageWidth: 250,
-      imageHeight: 250,
-      imageAlt: "Conejo",
-      showCancelButton: true,
-      confirmButtonColor: "#ffb320",
-      cancelButtonColor: "#ff205f",
-      confirmButtonText: "Finalizar compra",
-      cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = "../pages/compra.html";
-      }
-    });
+    window.location.href = "../pages/compra.html";
   }
 });
 
