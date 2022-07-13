@@ -172,7 +172,7 @@ header {
 }
 
 .navbar-brand {
-  width: 70px;
+  width: 120px;
 }
 
 .navbar-toggler {
@@ -236,12 +236,25 @@ header {
   cursor: pointer;
 }
 
-.banner {
-  width: 100%;
+.main-index {
+  background-color: #eef2f6;
 }
 
 .img__welcome {
-  height: 500px;
+  height: 90vh;
+  width: 100vw;
+}
+
+.intro-title {
+  font-size: 4.2rem;
+  font-weight: 600;
+  color: #ffb320;
+}
+
+.intro-description {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #252525;
 }
 
 .img__productos {
@@ -428,9 +441,6 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-.card-rowtop {
-  width: 150px;
-}
 .card-row:hover {
   box-shadow: 0px 4px 8px rgb(179, 176, 176);
   border: none;
@@ -471,7 +481,14 @@ header {
 }
 
 .hero-compra {
-  background: linear-gradient(to top, #536976, #292e49);
+  background-color: rgba(0, 0, 0, 0.4039215686);
+  padding-bottom: 2rem;
+}
+
+.compra_background-form {
+  background-color: #1f2225;
+  padding: 1rem;
+  border: 1px solid #d6dee7;
 }
 
 .form-label {
@@ -481,7 +498,8 @@ header {
 .form-control,
 .form-select {
   background-color: #eef2f6;
-  border-color: #ffb320;
+  border-radius: 0px;
+  border: 2px solid #d6dee7;
   color: #252525;
 }
 .form-control:focus,
@@ -516,8 +534,8 @@ header {
   margin-top: 1rem;
   padding: 0.4rem;
   background-color: #131313;
-  border-radius: 0.4rem;
-  border: 1px solid #ffb320;
+  border: 1px solid #d6dee7;
+  margin-bottom: 2rem;
 }
 .ultimo-title {
   font-size: 1.5rem;
@@ -558,6 +576,10 @@ header {
 
   .card-img-top {
     width: 180px;
+  }
+
+  .img__welcome {
+    height: 60vh;
   }
 }
 @media (max-width: 768px) {
@@ -601,6 +623,10 @@ header {
 
   #buscador {
     width: 100%;
+  }
+
+  .img__welcome {
+    height: 60vh;
   }
 }
 @media (min-width: 993px) {

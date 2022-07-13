@@ -1,7 +1,20 @@
-.banner {
-  width: 100%;
+.main-index {
+  background-color: $background-2;
 }
 
 .img__welcome {
-  height: 500px;
+  height: 90vh;
+  width: 100vw;
+}
+
+.intro-title {
+  font-size: 4.2rem;
+  font-weight: 600;
+  color: $color-1;
+}
+
+.intro-description {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $black;
 }

@@ -14,6 +14,9 @@
   .card-img-top {
     width: 180px;
   }
+  .img__welcome {
+    height: 60vh;
+  }
 }
 
 @media (max-width: 768px) {
@@ -53,6 +56,9 @@
   }
   #buscador {
     width: 100%;
+  }
+  .img__welcome {
+    height: 60vh;
   }
 }
 

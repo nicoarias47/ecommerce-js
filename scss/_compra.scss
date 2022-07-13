@@ -1,5 +1,14 @@
 .hero-compra {
-  background: linear-gradient(to top, #536976, #292e49);
+  background-color: #00000067;
+  padding-bottom: 2rem;
+}
+
+.compra_background {
+  &-form {
+    background-color: #1f2225;
+    padding: 1rem;
+    border: 1px solid $grey;
+  }
 }
 
 .form-label {
@@ -9,7 +18,9 @@
 .form-control,
 .form-select {
   background-color: $background-2;
-  border-color: $color-1;
+  border-radius: 0px;
+  border: 2px solid $grey;
+
   color: $black;
 
   &:focus {
@@ -47,8 +58,9 @@
     margin-top: 1rem;
     padding: 0.4rem;
     background-color: $background-1;
-    border-radius: 0.4rem;
-    border: 1px solid $color-1;
+
+    border: 1px solid $grey;
+    margin-bottom: 2rem;
   }
   &-title {
     font-size: 1.5rem;

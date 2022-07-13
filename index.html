@@ -34,7 +34,7 @@
       <nav class="navbar navbar-expand-lg">
         <div class="container-lg">
           <a class="navbar-brand" href="/index.html"
-            ><img src="../img/logo.png" alt="rabbit logo"
+            ><img src="img/logo.png" alt="rabbit logo"
           /></a>
           <button
             class="navbar-toggler"
@@ -69,104 +69,8 @@
         </div>
       </nav>
     </header>
-    <main>
-      <!-- floating btn -->
-      <section>
-        <!-- Offcanvas Sidebar -->
-        <div class="offcanvas offcanvas-end" id="demo">
-          <div class="offcanvas-header">
-            <h1 class="offcanvas-title">Carrito</h1>
-            <button
-              type="button"
-              class="btn-close text-reset"
-              data-bs-dismiss="offcanvas"
-            >
-              <i class="fa-solid fa-xmark"></i>
-            </button>
-          </div>
-          <div class="offcanvas-body">
-            <h2 class="carrito-title">Productos</h2>
-            <table class="carrito-tabla">
-              <thead>
-                <tr>
-                  <th>PRODUCTO</th>
-                  <th>CANT</th>
-                  <th>PRECIO</th>
-                </tr>
-              </thead>
-              <tbody id="list-items"></tbody>
-            </table>
-            <tbody id="list-product"></tbody>
-            <h2 class="carrito-title">PC Armada</h2>
-            <table class="carrito-tabla">
-              <thead>
-                <tr>
-                  <th>PRODUCTO</th>
-                  <th>CANT</th>
-                  <th>PRECIO</th>
-                </tr>
-              </thead>
-              <tbody id="list-product"></tbody>
-            </table>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">Sub Total:</span>
-              </div>
-              <div class="col carrito-subTotal"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">Envio:</span>
-              </div>
-              <div class="col carrito-envio"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">IVA 21%:</span>
-              </div>
-              <div class="col carrito-iva"></div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <span class="carrito-items">TOTAL:</span>
-              </div>
-              <div class="col carrito-total"></div>
-            </div>
-            <button class="btn btn-carrito" type="button">
-              Finalizar Compra
-            </button>
-            <button class="btn btn-carrito-clear" type="button" id="delete-all">
-              Vaciar Carrito
-            </button>
-          </div>
-        </div>
-        <!-- Button to open the offcanvas sidebar -->
-        <span class="contador" id="contador"></span>
-        <button
-          class="btn-shopping"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#demo"
-        >
-          <i class="fa-solid fa-basket-shopping"></i>
-        </button>
-      </section>
-      <div class="container-lg">
-        <div class="row">
-          <div class="col">
-            <img
-              src="img/12cuotas.png"
-              alt="12 cuotas sin interes"
-              class="banner"
-            />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <img src="img/asd.jpg" alt="entrada" class="img__welcome" />
-          </div>
-        </div>
-      </div>
+    <main class="main-index">
+      <img src="" alt="welcome" class="img__welcome" id="background" />
     </main>
     <footer class="footer">
       <div class="container-lg">
@@ -405,6 +309,7 @@
       crossorigin="anonymous"
     ></script>
     <!-- My Js -->
-    <script src="js/welcom.js"></script>
+    <script src="js/welcome.js"></script>
+    <script src="js/carousel.js" type="module"></script>
   </body>
 </html>
