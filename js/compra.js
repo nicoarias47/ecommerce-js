@@ -21,34 +21,35 @@ form.addEventListener("submit", (e) => {
           <span class="sweet-fechas pt-2">Te enviamos un correo electronico con el detalle de tu compra y otras indicaciones.</span>
           <span class="sweet-fechas pt-3">Fecha de entrega aproximada: ${llegada.toLocaleString()}</span>`,
     color: "#fff",
-    imageUrl: "https://unsplash.it/400/200",
-    imageWidth: 400,
-    imageHeight: 200,
-    imageAlt: "Gracias",
     confirmButtonText: "Continuar",
     confirmButtonColor: "#ffb320",
-    background: "linear-gradient(to top, #536976, #292e49)",
+    imageUrl: "../img/logo.png",
+    imageAlt: "HYPE LOGO",
+    imageWidth: 150,
+    imageHeight: 80,
+    background: "#1f2225",
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href = "../index.html";
     }
   });
-  setTimeout(() => (window.location.href = "../index.html"), 10000);
+  setTimeout(() => (window.location.href = "../index.html"), 15000);
   deleteStorage();
 });
 
+// --- btn: vaciar carrito ---
 const btnClear = document.querySelector("#btn-clear");
 
 btnClear.addEventListener("click", () => {
   Swal.fire({
     title: `¿Estas seguro de vaciar tu carrito de compras?`,
-    imageUrl: "https://unsplash.it/400/200",
-    imageWidth: 400,
-    imageHeight: 200,
-    imageAlt: "Gracias",
+    imageUrl: "../img/logo.png",
+    imageAlt: "HYPE LOGO",
+    imageWidth: 150,
+    imageHeight: 80,
+    background: "#1f2225",
     showCancelButton: true,
     color: "#fff",
-    background: "linear-gradient(to top, #536976, #292e49)",
     confirmButtonColor: "#ffb320",
     cancelButtonColor: "#ff205f",
     confirmButtonText: "Continuar",

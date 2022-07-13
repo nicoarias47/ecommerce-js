@@ -16,6 +16,9 @@ header {
   &:hover {
     color: $color-1;
   }
+  &:focus {
+    color: $color-1;
+  }
 }
 
 .nav-item {
@@ -47,9 +50,13 @@ header {
   padding: 0.5rem 1.6rem;
   border: none;
   border-radius: 1.8rem;
+  color: $black;
 
   &:hover {
     background-color: $color-1-ho;
     box-shadow: 0px 1px 4px $color-1-ho;
+  }
+  &:focus {
+    color: $black;
   }
 }

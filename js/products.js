@@ -1,3 +1,5 @@
+// JS CORRESPONDIENTE AL HTML PRODUCTOS
+
 // importamos los productos desde el json
 import { pedirProduct } from "./getData.js";
 const jsonProducts = await pedirProduct();
@@ -146,7 +148,7 @@ const filtroTodos = () => {
     removeCards();
     removeCardsRow(); // con esto eliminamos las cards en vista de rows
     newArray = array;
-    newArray.sort((a, b) => Math.random() - 0.5);
+    //newArray.sort((a, b) => Math.random() - 0.5);
     showProduct(newArray);
   });
 };
@@ -155,6 +157,7 @@ const filtroMicro = () => {
   document.querySelector("#filtro-micro").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Micro"));
     showProduct(newArray);
@@ -165,6 +168,7 @@ const filtroCooler = () => {
   document.querySelector("#filtro-cooler").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Cooler"));
     showProduct(newArray);
@@ -175,6 +179,7 @@ const filtroMother = () => {
   document.querySelector("#filtro-mother").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Mother"));
     showProduct(newArray);
@@ -185,6 +190,7 @@ const filtroRam = () => {
   document.querySelector("#filtro-ram").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Ram"));
     showProduct(newArray);
@@ -195,6 +201,7 @@ const filtroVideo = () => {
   document.querySelector("#filtro-video").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Video"));
     showProduct(newArray);
@@ -204,6 +211,7 @@ const filtroDisco = () => {
   document.querySelector("#filtro-disco").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Disco"));
     showProduct(newArray);
@@ -214,6 +222,7 @@ const filtroFuente = () => {
   document.querySelector("#filtro-fuente").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Fuente"));
     showProduct(newArray);
@@ -224,6 +233,7 @@ const filtroGabinete = () => {
   document.querySelector("#filtro-gabinete").addEventListener("click", () => {
     removeCards();
     removeCardsRow();
+    removePrice();
     newArray = array;
     newArray = array.filter((array) => array.name.includes("Gabinete"));
     showProduct(newArray);
@@ -452,16 +462,16 @@ deleteAllBtn.addEventListener("click", () => {
     title: "¿Esta seguro de vaciar el carrito?",
     text: "¡No podrás revertir esto!",
     color: "#fff",
-    imageUrl: "../img/conejo.png",
-    imageWidth: 250,
-    imageHeight: 250,
-    imageAlt: "Conejo enojado",
+    imageUrl: "../img/logo.png",
+    imageWidth: 150,
+    imageHeight: 80,
+    imageAlt: "HYPE LOGO",
     showCancelButton: true,
     confirmButtonColor: "#ffb320",
     cancelButtonColor: "#ff205f",
     confirmButtonText: "Si, Vaciar",
     cancelButtonText: "Cancelar",
-    background: "linear-gradient(to top, #536976, #292e49)",
+    background: "#1f2225",
   }).then((result) => {
     if (result.isConfirmed) {
       deleteAll();
@@ -612,7 +622,11 @@ finish.addEventListener("click", () => {
       confirmButtonColor: "#ffb320",
       color: "#fff",
       confirmButtonText: "Continuar",
-      background: "linear-gradient(to top, #536976, #292e49)",
+      imageUrl: "../img/logo.png",
+      imageAlt: "HYPE LOGO",
+      imageWidth: 150,
+      imageHeight: 80,
+      background: "#1f2225",
     });
   }
   if (
@@ -645,16 +659,17 @@ const panelFiltros = document.querySelector("#filtros");
 panelFiltros.addEventListener("click", (e) => {
   print(e);
 });
+// eliminamos el color del filtro por precio
+const removePrice = () => {
+  document.querySelector("#mayorPrecio").style.color = "#252525";
+  document.querySelector("#menorPrecio").style.color = "#252525";
+};
 
 const print = (e) => {
   if (e.target.classList.contains("productos-link")) {
     const text = e.target;
     const target = e.target.dataset.id;
-    // eliminamos el color del filtro por precio
-    const removePrice = () => {
-      document.querySelector("#mayorPrecio").style.color = "#252525";
-      document.querySelector("#menorPrecio").style.color = "#252525";
-    };
+
     //eliminamos el color de todos los filtros
     const all = document.querySelectorAll(".productos-link");
     const removeAll = () => {
@@ -699,6 +714,29 @@ const print = (e) => {
 
   e.stopPropagation();
 };
+
+// --- BTN BACK TO TOP ---
+
+const btnTop = document.querySelector("#myBtn");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    btnTop.style.display = "block";
+  } else {
+    btnTop.style.display = "none";
+  }
+}
+
+btnTop.addEventListener("click", topFunction);
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 contar();
 segundaCompraGet();

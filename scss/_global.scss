@@ -156,3 +156,23 @@ body {
   height: 25px;
   z-index: 1000;
 }
+
+// --- btn back to top ---
+.myBtn {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 43px;
+  z-index: 99;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+  padding: 4px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  i {
+    font-size: 20px;
+    color: $color-2;
+  }
+}

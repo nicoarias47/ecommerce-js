@@ -142,6 +142,24 @@ body {
   z-index: 1000;
 }
 
+.myBtn {
+  display: none;
+  position: fixed;
+  bottom: 90px;
+  right: 43px;
+  z-index: 99;
+  outline: none;
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+  padding: 4px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.myBtn i {
+  font-size: 20px;
+  color: #ff205f;
+}
+
 header {
   background-color: #131313;
   border-bottom: 2px solid #ffb320;
@@ -158,6 +176,9 @@ header {
   display: inline-block;
 }
 .nav-link:hover {
+  color: #ffb320;
+}
+.nav-link:focus {
   color: #ffb320;
 }
 
@@ -189,10 +210,14 @@ header {
   padding: 0.5rem 1.6rem;
   border: none;
   border-radius: 1.8rem;
+  color: #252525;
 }
 .login:hover {
   background-color: #f7c96d;
   box-shadow: 0px 1px 4px #f7c96d;
+}
+.login:focus {
+  color: #252525;
 }
 
 .footer {
@@ -259,7 +284,7 @@ header {
 
 .img__productos {
   width: 100%;
-  height: 240px;
+  height: 230px;
   padding-bottom: 1.5rem;
 }
 
@@ -379,49 +404,6 @@ header {
   font-size: 0.8rem;
 }
 
-.card {
-  background-color: #fff;
-  width: 13rem;
-  border: 2px solid #d6dee7;
-  border-radius: 0px;
-}
-.card-body {
-  padding: 0.8rem;
-}
-.card-title {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #252525;
-}
-.card-text {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #ffb320;
-}
-.card:hover {
-  box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  border: none;
-}
-
-.card-search {
-  background-color: #eef2f6;
-  border: none;
-}
-
-.btn-primary {
-  background-color: #ffb320;
-  border: none;
-  border-radius: 0px;
-}
-.btn-primary:hover {
-  background-color: #f7c96d;
-}
-.btn-primary:focus {
-  background-color: #ffb320;
-  box-shadow: none;
-  outline: none;
-}
-
 .barra-pasos {
   background-color: #fff;
   color: #252525;
@@ -430,20 +412,6 @@ header {
   padding: 0.4rem;
   margin-bottom: 1rem;
   border: 2px solid #d6dee7;
-}
-
-.card-row {
-  padding: 0.5rem;
-  background-color: #fff;
-  border: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-.card-row:hover {
-  box-shadow: 0px 4px 8px rgb(179, 176, 176);
-  border: none;
 }
 
 .ultimoPaso {
@@ -554,10 +522,72 @@ header {
   color: #fff;
   border-radius: 0px;
   background-color: #ff205f;
+  border: none;
 }
 .btn-clear:hover {
   color: #fff;
   background-color: #f95785;
+}
+.btn-clear:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.card {
+  background-color: #fff;
+  width: 13rem;
+  border: 2px solid #d6dee7;
+  border-radius: 0px;
+}
+.card-body {
+  padding: 0.8rem;
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #252525;
+}
+.card-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffb320;
+}
+.card:hover {
+  box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.card-search {
+  background-color: #eef2f6;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #ffb320;
+  border: none;
+  border-radius: 0px;
+}
+.btn-primary:hover {
+  background-color: #f7c96d;
+}
+.btn-primary:focus {
+  background-color: #ffb320;
+  box-shadow: none;
+  outline: none;
+}
+
+.card-row {
+  padding: 0.5rem;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-row:hover {
+  box-shadow: 0px 4px 8px rgb(179, 176, 176);
+  border: none;
 }
 
 @media (max-width: 992px) {

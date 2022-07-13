@@ -1,3 +1,5 @@
+// JS CORRESPONDIENTE AL HTML ARMA TU PC
+
 import { pedirProduct } from "./getData.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -471,16 +473,16 @@ deleteAllBtn.addEventListener("click", () => {
     title: "¿Esta seguro de vaciar el carrito?",
     text: "¡No podrás revertir esto!",
     color: "#fff",
-    imageUrl: "../img/conejo.png",
-    imageWidth: 250,
-    imageHeight: 250,
-    imageAlt: "Conejo enojado",
+    imageUrl: "../img/logo.png",
+    imageWidth: 150,
+    imageHeight: 80,
+    imageAlt: "HYPE LOGO",
     showCancelButton: true,
     confirmButtonColor: "#ffb320",
     cancelButtonColor: "#ff205f",
     confirmButtonText: "Si, Vaciar",
     cancelButtonText: "Cancelar",
-    background: "linear-gradient(to top, #536976, #292e49)",
+    background: "#1f2225",
   }).then((result) => {
     if (result.isConfirmed) {
       deleteAll();
@@ -553,7 +555,7 @@ const pasosBarra = () => {
           compra, ¿te gustaria comprar algo mas ?
         </h2>
         <img
-          src="../img/conejo.jpg"
+          src="../img/conejo-fin.jpg"
           alt=""
           class="ultimoPaso-img mx-auto"
         />
@@ -622,7 +624,11 @@ finish.addEventListener("click", () => {
       confirmButtonColor: "#ffb320",
       color: "#fff",
       confirmButtonText: "Continuar",
-      background: "linear-gradient(to top, #536976, #292e49)",
+      imageUrl: "../img/logo.png",
+      imageAlt: "HYPE LOGO",
+      imageWidth: 150,
+      imageHeight: 80,
+      background: "#1f2225",
     });
   }
   if (
@@ -650,3 +656,26 @@ export const contar = () => {
 };
 
 contar();
+
+// --- BTN BACK TO TOP ---
+
+const btnTop = document.querySelector("#myBtn");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    btnTop.style.display = "block";
+  } else {
+    btnTop.style.display = "none";
+  }
+}
+
+btnTop.addEventListener("click", topFunction);
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

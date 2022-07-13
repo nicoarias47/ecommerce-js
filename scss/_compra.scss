@@ -80,9 +80,14 @@
   color: $white;
   border-radius: 0px;
   background-color: $color-2;
+  border: none;
 
   &:hover {
     color: $white;
     background-color: $color-2-ho;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: none;
   }
 }
