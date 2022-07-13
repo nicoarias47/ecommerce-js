@@ -1,14 +1,14 @@
 [
   {
-    "img": "img/carousel/background-1.jpg"
+    "img": "./img/carousel/background-1.jpg"
   },
   {
-    "img": "img/carousel/background-2.jpg"
+    "img": "./img/carousel/background-2.jpg"
   },
   {
-    "img": "img/carousel/background-3.jpg"
+    "img": "./img/carousel/background-3.jpg"
   },
   {
-    "img": "img/carousel/background-4.jpg"
+    "img": "./img/carousel/background-4.jpg"
   }
 ]
