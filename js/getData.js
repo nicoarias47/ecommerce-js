@@ -7,7 +7,7 @@ export const pedirProduct = async () => {
   return data;
 };
 
-const IMG = "../data/img.json";
+const IMG = "../data/url.json";
 
 export const pedirImg = async () => {
   const resp = await fetch(IMG);
