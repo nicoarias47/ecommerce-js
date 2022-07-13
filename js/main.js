@@ -1,4 +1,4 @@
-import { pedirImg } from "./getData.js";
+import { pedirImg } from "./getImg.js";
 
 // --- json con url de img ---
 const images = await pedirImg();

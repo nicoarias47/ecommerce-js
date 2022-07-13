@@ -6,12 +6,3 @@ export const pedirProduct = async () => {
 
   return data;
 };
-
-const IMG = "../images.json";
-
-export const pedirImg = async () => {
-  const resp = await fetch(IMG);
-  const data = await resp.json();
-
-  return data;
-};
