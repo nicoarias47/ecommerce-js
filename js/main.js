@@ -12,7 +12,7 @@ let currentItem = 0;
 
 // --- cargamos el item inicial ---
 
-window.addEventListener("DOMcontentLoaded", () => {
+document.addEventListener("DOMcontentLoaded", () => {
   showImg(currentItem);
 });
 
