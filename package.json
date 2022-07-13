@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "hype",
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
@@ -7,7 +7,7 @@
     "compile:sass": "sass --watch scss/style.scss css/style.css"
   },
   "keywords": [],
-  "author": "",
+  "author": "nicolas arias",
   "license": "ISC",
   "dependencies": {
     "sweetalert2": "^11.4.20"
